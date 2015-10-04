@@ -1,0 +1,17 @@
+ext.githubProjectName = rootProject.name
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+    version = rootVersion
+}
+
+subprojects {
+
+}
+
+task wrapper(type: Wrapper) {
+    description = 'Generates gradlew[.bat] scripts'
+    gradleVersion = '2.7'
+}

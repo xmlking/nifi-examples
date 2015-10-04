@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="max.retention.days" value="60" />
+
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--<pattern>common</pattern>-->
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STASH" class="net.logstash.logback.appender.LogstashSocketAppender">
+        <host>localhost</host>
+        <port>8888</port>
+    </appender>
+
+    <appender name="ACCESS-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./logs/access.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/archive/access-%d{yyyyMMdd}-%i.log.zip</fileNamePattern>
+            <maxHistory>${max.retention.days}</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>combined</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.crossbusiness.loggen.AccessLogGenerator" level="DEBUG">
+        <appender-ref ref="ACCESS-LOG"/>
+    </logger>
+
+    <root level="all">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STASH" />
+    </root>
+</configuration>
