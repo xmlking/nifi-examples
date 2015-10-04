@@ -8,5 +8,6 @@ collect-stream-logs
 
 ### Demo
 ![streaming logs](./log-demo.png)
-Reference 
+
+### Reference 
 1. [Collecting Logs with Apache NiFi](http://bryanbende.com/development/2015/05/17/collecting-logs-with-apache-nifi/)
