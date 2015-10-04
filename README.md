@@ -1,4 +1,4 @@
-nifi-examples
+NiFi Examples
 =================
 
 Apache NiFi example flows.
