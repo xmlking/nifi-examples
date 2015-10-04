@@ -1,1 +1,1491 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><template><description>Collect Stream Logs</description><name>collect-stream-logs</name><snippet><controllerServices><id>47a71a8f-4550-4f34-8d57-56fb651b52da</id><comments></comments><descriptors><entry><key>Listening Port</key><value><description>the port to listen on for incoming connections</description><displayName>Listening Port</displayName><dynamic>false</dynamic><name>Listening Port</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>URL prefix</key><value><defaultValue>/eventbus/*</defaultValue><description>URL context path where clients can connect</description><displayName>URL prefix</displayName><dynamic>false</dynamic><name>URL prefix</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>inbound address regex</key><value><defaultValue>.*</defaultValue><description>permitted matches for inbound (client-&gt;server) traffic</description><displayName>inbound address regex</displayName><dynamic>false</dynamic><name>inbound address regex</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>outbound address regex</key><value><defaultValue>.*</defaultValue><description>permitted matches for outbound (server-&gt;client) traffic</description><displayName>outbound address regex</displayName><dynamic>false</dynamic><name>outbound address regex</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><name>VertxService</name><properties><entry><key>Listening Port</key><value>5555</value></entry><entry><key>URL prefix</key><value>/eventbus/*</value></entry><entry><key>inbound address regex</key><value>.*</value></entry><entry><key>outbound address regex</key><value>.*</value></entry></properties><referencingComponents><activeThreadCount>0</activeThreadCount><descriptors><entry><key>outbound address</key><value><description>address where outbound message will be published</description><displayName>outbound address</displayName><dynamic>false</dynamic><name>outbound address</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Vertx Service</key><value><allowableValues><displayName>VertxService</displayName><value>47a71a8f-4550-4f34-8d57-56fb651b52da</value></allowableValues><description>The ControllerService that is used to obtain eventBus instance</description><displayName>Vertx Service</displayName><dynamic>false</dynamic><identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface</identifiesControllerService><name>Vertx Service</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>20e23fa3-64e9-4f3f-bd98-442a6631e325</id><name>send log json to EvenBus</name><properties><entry><key>outbound address</key><value>log</value></entry><entry><key>Vertx Service</key><value>47a71a8f-4550-4f34-8d57-56fb651b52da</value></entry></properties><referenceType>Processor</referenceType><state>STOPPED</state><type>com.crossbusiness.nifi.processors.SendEventBus</type></referencingComponents><state>ENABLED</state><type>com.crossbusiness.nifi.controllers.VertxService</type></controllerServices><processGroups><id>fd4661d0-4055-4757-9c94-3bb31e2eda3b</id><parentGroupId>640d51ac-6f4d-4a43-87fc-cd2c9510ca65</parentGroupId><position><x>-456.27978515625</x><y>197.21768951416016</y></position><activeRemotePortCount>0</activeRemotePortCount><comments></comments><contents><connections><id>9c4e85f1-06ca-42e4-817d-f7369cc9019d</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold><backPressureObjectThreshold>0</backPressureObjectThreshold><bends><x>695.8123779296875</x><y>341.33489990234375</y></bends><destination><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>369eca3f-04a6-4f61-8a8d-70310298ac50</id><type>PROCESSOR</type></destination><flowFileExpiration>0 sec</flowFileExpiration><labelIndex>0</labelIndex><name></name><selectedRelationships>splits</selectedRelationships><source><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>7b17dec1-2d6f-4587-b890-cf152242d0a3</id><type>PROCESSOR</type></source><zIndex>0</zIndex></connections><connections><id>c8ced03c-5e5a-4db7-8f8b-8e450e02d580</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold><backPressureObjectThreshold>0</backPressureObjectThreshold><bends><x>1373.9713134765625</x><y>189.85910034179688</y></bends><destination><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>5675fb24-788a-4d7c-8d9f-c102172d36e8</id><type>PROCESSOR</type></destination><flowFileExpiration>0 sec</flowFileExpiration><labelIndex>0</labelIndex><name></name><prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers><selectedRelationships>success</selectedRelationships><source><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>b7f93e3c-e127-436e-be02-76ae1b9f6e9b</id><type>PROCESSOR</type></source><zIndex>0</zIndex></connections><connections><id>c74812ed-efbe-4d28-ae47-b916aecca795</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold><backPressureObjectThreshold>0</backPressureObjectThreshold><bends><x>1375.71240234375</x><y>342.2054443359375</y></bends><destination><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>20e23fa3-64e9-4f3f-bd98-442a6631e325</id><type>PROCESSOR</type></destination><flowFileExpiration>0 sec</flowFileExpiration><labelIndex>0</labelIndex><name></name><prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers><selectedRelationships>matched</selectedRelationships><source><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>5675fb24-788a-4d7c-8d9f-c102172d36e8</id><type>PROCESSOR</type></source><zIndex>0</zIndex></connections><connections><id>f84d9b11-5d82-4825-b99b-676da8cf6b6a</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold><backPressureObjectThreshold>0</backPressureObjectThreshold><bends><x>698.424072265625</x><y>202.9173583984375</y></bends><destination><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>7b17dec1-2d6f-4587-b890-cf152242d0a3</id><type>PROCESSOR</type></destination><flowFileExpiration>0 sec</flowFileExpiration><labelIndex>0</labelIndex><name></name><selectedRelationships>success</selectedRelationships><source><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>39168a07-b86d-47f1-a912-ff5e75288bf7</id><type>PROCESSOR</type></source><zIndex>0</zIndex></connections><connections><id>ae8defb2-db97-4ca1-b97f-652873528d8c</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold><backPressureObjectThreshold>0</backPressureObjectThreshold><destination><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>20e23fa3-64e9-4f3f-bd98-442a6631e325</id><type>PROCESSOR</type></destination><flowFileExpiration>0 sec</flowFileExpiration><labelIndex>1</labelIndex><name></name><selectedRelationships>success</selectedRelationships><source><groupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</groupId><id>369eca3f-04a6-4f61-8a8d-70310298ac50</id><type>PROCESSOR</type></source><zIndex>0</zIndex></connections><processors><id>39168a07-b86d-47f1-a912-ff5e75288bf7</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><position><x>169.4239501953125</x><y>70.68282318115234</y></position><config><bulletinLevel>WARN</bulletinLevel><comments></comments><concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount><defaultConcurrentTasks><entry><key>TIMER_DRIVEN</key><value>1</value></entry><entry><key>EVENT_DRIVEN</key><value>0</value></entry><entry><key>CRON_DRIVEN</key><value>1</value></entry></defaultConcurrentTasks><defaultSchedulingPeriod><entry><key>TIMER_DRIVEN</key><value>0 sec</value></entry><entry><key>CRON_DRIVEN</key><value>* * * * * ?</value></entry></defaultSchedulingPeriod><descriptors><entry><key>Input Directory</key><value><description>The input directory from which to pull files</description><displayName>Input Directory</displayName><dynamic>false</dynamic><name>Input Directory</name><required>true</required><sensitive>false</sensitive><supportsEl>true</supportsEl></value></entry><entry><key>File Filter</key><value><defaultValue>[^\.].*</defaultValue><description>Only files whose names match the given regular expression will be picked up</description><displayName>File Filter</displayName><dynamic>false</dynamic><name>File Filter</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Path Filter</key><value><description>When Recurse Subdirectories is true, then only subdirectories whose path matches the given regular expression will be scanned</description><displayName>Path Filter</displayName><dynamic>false</dynamic><name>Path Filter</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Batch Size</key><value><defaultValue>10</defaultValue><description>The maximum number of files to pull in each iteration</description><displayName>Batch Size</displayName><dynamic>false</dynamic><name>Batch Size</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Keep Source File</key><value><allowableValues><displayName>true</displayName><value>true</value></allowableValues><allowableValues><displayName>false</displayName><value>false</value></allowableValues><defaultValue>false</defaultValue><description>If true, the file is not deleted after it has been copied to the Content Repository; this causes the file to be picked up continually and is useful for testing purposes.  If not keeping original NiFi will need write permissions on the directory it is pulling from otherwise it will ignore the file.</description><displayName>Keep Source File</displayName><dynamic>false</dynamic><name>Keep Source File</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Recurse Subdirectories</key><value><allowableValues><displayName>true</displayName><value>true</value></allowableValues><allowableValues><displayName>false</displayName><value>false</value></allowableValues><defaultValue>true</defaultValue><description>Indicates whether or not to pull files from subdirectories</description><displayName>Recurse Subdirectories</displayName><dynamic>false</dynamic><name>Recurse Subdirectories</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Polling Interval</key><value><defaultValue>0 sec</defaultValue><description>Indicates how long to wait before performing a directory listing</description><displayName>Polling Interval</displayName><dynamic>false</dynamic><name>Polling Interval</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Ignore Hidden Files</key><value><allowableValues><displayName>true</displayName><value>true</value></allowableValues><allowableValues><displayName>false</displayName><value>false</value></allowableValues><defaultValue>true</defaultValue><description>Indicates whether or not hidden files should be ignored</description><displayName>Ignore Hidden Files</displayName><dynamic>false</dynamic><name>Ignore Hidden Files</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Minimum File Age</key><value><defaultValue>0 sec</defaultValue><description>The minimum age that a file must be in order to be pulled; any file younger than this amount of time (according to last modification date) will be ignored</description><displayName>Minimum File Age</displayName><dynamic>false</dynamic><name>Minimum File Age</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Maximum File Age</key><value><description>The maximum age that a file must be in order to be pulled; any file older than this amount of time (according to last modification date) will be ignored</description><displayName>Maximum File Age</displayName><dynamic>false</dynamic><name>Maximum File Age</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Minimum File Size</key><value><defaultValue>0 B</defaultValue><description>The minimum size that a file must be in order to be pulled</description><displayName>Minimum File Size</displayName><dynamic>false</dynamic><name>Minimum File Size</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Maximum File Size</key><value><description>The maximum size that a file can be in order to be pulled</description><displayName>Maximum File Size</displayName><dynamic>false</dynamic><name>Maximum File Size</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><lossTolerant>false</lossTolerant><penaltyDuration>30 sec</penaltyDuration><properties><entry><key>Input Directory</key><value>.\data\in</value></entry><entry><key>File Filter</key><value>[^\.].*</value></entry><entry><key>Path Filter</key></entry><entry><key>Batch Size</key><value>10</value></entry><entry><key>Keep Source File</key><value>false</value></entry><entry><key>Recurse Subdirectories</key><value>true</value></entry><entry><key>Polling Interval</key><value>0 sec</value></entry><entry><key>Ignore Hidden Files</key><value>true</value></entry><entry><key>Minimum File Age</key><value>0 sec</value></entry><entry><key>Maximum File Age</key></entry><entry><key>Minimum File Size</key><value>0 B</value></entry><entry><key>Maximum File Size</key></entry></properties><runDurationMillis>0</runDurationMillis><schedulingPeriod>0 sec</schedulingPeriod><schedulingStrategy>TIMER_DRIVEN</schedulingStrategy><yieldDuration>1 sec</yieldDuration></config><name>load log files from folder</name><relationships><autoTerminate>false</autoTerminate><description>All files are routed to success</description><name>success</name></relationships><state>STOPPED</state><style/><supportsEventDriven>false</supportsEventDriven><supportsParallelProcessing>true</supportsParallelProcessing><type>org.apache.nifi.processors.standard.GetFile</type></processors><processors><id>b7f93e3c-e127-436e-be02-76ae1b9f6e9b</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><position><x>866.2362670898438</x><y>69.55336843005904</y></position><config><bulletinLevel>WARN</bulletinLevel><comments></comments><concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount><defaultConcurrentTasks><entry><key>TIMER_DRIVEN</key><value>1</value></entry><entry><key>EVENT_DRIVEN</key><value>0</value></entry><entry><key>CRON_DRIVEN</key><value>1</value></entry></defaultConcurrentTasks><defaultSchedulingPeriod><entry><key>TIMER_DRIVEN</key><value>0 sec</value></entry><entry><key>CRON_DRIVEN</key><value>* * * * * ?</value></entry></defaultSchedulingPeriod><descriptors><entry><key>Sending Host</key><value><description>IP, or name, of a remote host. Only Datagrams from the specified Sending Host Port and this host will be accepted. Improves Performance. May be a system property or an environment variable.</description><displayName>Sending Host</displayName><dynamic>false</dynamic><name>Sending Host</name><required>false</required><sensitive>false</sensitive><supportsEl>true</supportsEl></value></entry><entry><key>Sending Host Port</key><value><description>Port being used by remote host to send Datagrams. Only Datagrams from the specified Sending Host and this port will be accepted. Improves Performance. May be a system property or an environment variable.</description><displayName>Sending Host Port</displayName><dynamic>false</dynamic><name>Sending Host Port</name><required>false</required><sensitive>false</sensitive><supportsEl>true</supportsEl></value></entry><entry><key>Local Network Interface</key><value><description>The name of a local network interface to be used to restrict listening for UDP Datagrams to a specific LAN.May be a system property or an environment variable.</description><displayName>Local Network Interface</displayName><dynamic>false</dynamic><name>Local Network Interface</name><required>false</required><sensitive>false</sensitive><supportsEl>true</supportsEl></value></entry><entry><key>Channel Reader Interval</key><value><defaultValue>50 ms</defaultValue><description>Scheduling interval for each read channel.</description><displayName>Channel Reader Interval</displayName><dynamic>false</dynamic><name>Channel Reader Interval</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>FlowFile Size Trigger</key><value><defaultValue>1 MB</defaultValue><description>Determines the (almost) upper bound size at which a flow file would be generated.</description><displayName>FlowFile Size Trigger</displayName><dynamic>false</dynamic><name>FlowFile Size Trigger</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Max Buffer Size</key><value><defaultValue>1 MB</defaultValue><description>Determines the size each receive buffer may be</description><displayName>Max Buffer Size</displayName><dynamic>false</dynamic><name>Max Buffer Size</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Max size of UDP Buffer</key><value><defaultValue>1 MB</defaultValue><description>The maximum UDP buffer size that should be used. This is a suggestion to the Operating System to indicate how big the udp socket buffer should be.</description><displayName>Max size of UDP Buffer</displayName><dynamic>false</dynamic><name>Max size of UDP Buffer</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Port</key><value><description>Port to listen on. Must be known by senders of Datagrams.</description><displayName>Port</displayName><dynamic>false</dynamic><name>Port</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Receive Buffer Count</key><value><defaultValue>4</defaultValue><description>Number of receiving buffers to be used to accept data from the socket. Higher numbers means more ram is allocated but can allow better throughput.</description><displayName>Receive Buffer Count</displayName><dynamic>false</dynamic><name>Receive Buffer Count</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>FlowFiles Per Session</key><value><defaultValue>10</defaultValue><description>The number of flow files per session.</description><displayName>FlowFiles Per Session</displayName><dynamic>false</dynamic><name>FlowFiles Per Session</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Receive Timeout</key><value><defaultValue>5 secs</defaultValue><description>The time out period when waiting to receive data from the socket. Specify units.</description><displayName>Receive Timeout</displayName><dynamic>false</dynamic><name>Receive Timeout</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>FlowFile Per Datagram</key><value><allowableValues><displayName>true</displayName><value>true</value></allowableValues><allowableValues><displayName>false</displayName><value>false</value></allowableValues><defaultValue>false</defaultValue><description>Determines if this processor emits each datagram as a FlowFile, or if multiple datagrams can be placed in a single FlowFile.</description><displayName>FlowFile Per Datagram</displayName><dynamic>false</dynamic><name>FlowFile Per Datagram</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><lossTolerant>false</lossTolerant><penaltyDuration>30 sec</penaltyDuration><properties><entry><key>Sending Host</key></entry><entry><key>Sending Host Port</key></entry><entry><key>Local Network Interface</key></entry><entry><key>Channel Reader Interval</key><value>50 ms</value></entry><entry><key>FlowFile Size Trigger</key><value>1 MB</value></entry><entry><key>Max Buffer Size</key><value>1 MB</value></entry><entry><key>Max size of UDP Buffer</key><value>1 MB</value></entry><entry><key>Port</key><value>8888</value></entry><entry><key>Receive Buffer Count</key><value>4</value></entry><entry><key>FlowFiles Per Session</key><value>10</value></entry><entry><key>Receive Timeout</key><value>5 secs</value></entry><entry><key>FlowFile Per Datagram</key><value>true</value></entry></properties><runDurationMillis>0</runDurationMillis><schedulingPeriod>0 sec</schedulingPeriod><schedulingStrategy>TIMER_DRIVEN</schedulingStrategy><yieldDuration>1 sec</yieldDuration></config><name>Listen for logs on UDP</name><relationships><autoTerminate>false</autoTerminate><description>Connection which contains concatenated Datagram Packets</description><name>success</name></relationships><state>STOPPED</state><style/><supportsEventDriven>false</supportsEventDriven><supportsParallelProcessing>true</supportsParallelProcessing><type>org.apache.nifi.processors.standard.ListenUDP</type></processors><processors><id>5675fb24-788a-4d7c-8d9f-c102172d36e8</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><position><x>866.6307983398438</x><y>218.37860570422896</y></position><config><bulletinLevel>WARN</bulletinLevel><comments></comments><concurrentlySchedulableTaskCount>0</concurrentlySchedulableTaskCount><defaultConcurrentTasks><entry><key>TIMER_DRIVEN</key><value>1</value></entry><entry><key>EVENT_DRIVEN</key><value>0</value></entry><entry><key>CRON_DRIVEN</key><value>1</value></entry></defaultConcurrentTasks><defaultSchedulingPeriod><entry><key>TIMER_DRIVEN</key><value>0 sec</value></entry><entry><key>CRON_DRIVEN</key><value>* * * * * ?</value></entry></defaultSchedulingPeriod><descriptors><entry><key>Destination</key><value><allowableValues><displayName>flowfile-content</displayName><value>flowfile-content</value></allowableValues><allowableValues><displayName>flowfile-attribute</displayName><value>flowfile-attribute</value></allowableValues><defaultValue>flowfile-content</defaultValue><description>Indicates whether the results of the JsonPath evaluation are written to the FlowFile content or a FlowFile attribute; if using attribute, must specify the Attribute Name property. If set to flowfile-content, only one JsonPath may be specified, and the property name is ignored.</description><displayName>Destination</displayName><dynamic>false</dynamic><name>Destination</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Return Type</key><value><allowableValues><displayName>auto-detect</displayName><value>auto-detect</value></allowableValues><allowableValues><displayName>json</displayName><value>json</value></allowableValues><allowableValues><displayName>scalar</displayName><value>scalar</value></allowableValues><defaultValue>auto-detect</defaultValue><description>Indicates the desired return type of the JSON Path expressions.  Selecting 'auto-detect' will set the return type to 'json' for a Destination of 'flowfile-content', and 'scalar' for a Destination of 'flowfile-attribute'.</description><displayName>Return Type</displayName><dynamic>false</dynamic><name>Return Type</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Path Not Found Behavior</key><value><allowableValues><displayName>warn</displayName><value>warn</value></allowableValues><allowableValues><displayName>ignore</displayName><value>ignore</value></allowableValues><defaultValue>ignore</defaultValue><description>Indicates how to handle missing JSON path expressions when destination is set to 'flowfile-attribute'. Selecting 'warn' will generate a warning when a JSON path expression is not found.</description><displayName>Path Not Found Behavior</displayName><dynamic>false</dynamic><name>Path Not Found Behavior</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Null Value Representation</key><value><allowableValues><displayName>empty string</displayName><value>empty string</value></allowableValues><allowableValues><displayName>the string 'null'</displayName><value>the string 'null'</value></allowableValues><defaultValue>empty string</defaultValue><description>Indicates the desired representation of JSON Path expressions resulting in a null value.</description><displayName>Null Value Representation</displayName><dynamic>false</dynamic><name>Null Value Representation</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>log</key><value><description></description><displayName>log</displayName><dynamic>true</dynamic><name>log</name><required>false</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><lossTolerant>false</lossTolerant><penaltyDuration>30 sec</penaltyDuration><properties><entry><key>Destination</key><value>flowfile-content</value></entry><entry><key>Return Type</key><value>json</value></entry><entry><key>Path Not Found Behavior</key><value>ignore</value></entry><entry><key>Null Value Representation</key><value>empty string</value></entry><entry><key>log</key><value>$.message</value></entry></properties><runDurationMillis>0</runDurationMillis><schedulingPeriod>0 sec</schedulingPeriod><schedulingStrategy>EVENT_DRIVEN</schedulingStrategy><yieldDuration>1 sec</yieldDuration></config><name>test only - copy $.message</name><relationships><autoTerminate>true</autoTerminate><description>FlowFiles are routed to this relationship when the JsonPath cannot be evaluated against the content of the FlowFile; for instance, if the FlowFile is not valid JSON</description><name>failure</name></relationships><relationships><autoTerminate>false</autoTerminate><description>FlowFiles are routed to this relationship when the JsonPath is successfully evaluated and the FlowFile is modified as a result</description><name>matched</name></relationships><relationships><autoTerminate>true</autoTerminate><description>FlowFiles are routed to this relationship when the JsonPath does not match the content of the FlowFile and the Destination is set to flowfile-content</description><name>unmatched</name></relationships><state>STOPPED</state><style/><supportsEventDriven>true</supportsEventDriven><supportsParallelProcessing>true</supportsParallelProcessing><type>org.apache.nifi.processors.standard.EvaluateJsonPath</type></processors><processors><id>369eca3f-04a6-4f61-8a8d-70310298ac50</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><position><x>171.03558349609375</x><y>367.9061050415039</y></position><config><bulletinLevel>WARN</bulletinLevel><comments></comments><concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount><defaultConcurrentTasks><entry><key>TIMER_DRIVEN</key><value>1</value></entry><entry><key>EVENT_DRIVEN</key><value>0</value></entry><entry><key>CRON_DRIVEN</key><value>1</value></entry></defaultConcurrentTasks><defaultSchedulingPeriod><entry><key>TIMER_DRIVEN</key><value>0 sec</value></entry><entry><key>CRON_DRIVEN</key><value>* * * * * ?</value></entry></defaultSchedulingPeriod><descriptors><entry><key>Regular Expression</key><value><defaultValue>(?s:^.*$)</defaultValue><description>The Regular Expression to search for in the FlowFile content</description><displayName>Regular Expression</displayName><dynamic>false</dynamic><name>Regular Expression</name><required>true</required><sensitive>false</sensitive><supportsEl>true</supportsEl></value></entry><entry><key>Replacement Value</key><value><defaultValue>$1</defaultValue><description>The value to replace the regular expression with. Back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value.</description><displayName>Replacement Value</displayName><dynamic>false</dynamic><name>Replacement Value</name><required>true</required><sensitive>false</sensitive><supportsEl>true</supportsEl></value></entry><entry><key>Character Set</key><value><defaultValue>UTF-8</defaultValue><description>The Character Set in which the file is encoded</description><displayName>Character Set</displayName><dynamic>false</dynamic><name>Character Set</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Maximum Buffer Size</key><value><defaultValue>1 MB</defaultValue><description>Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the regular expressions. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored and the buffer is not used if 'Regular Expression' is set to '.*'</description><displayName>Maximum Buffer Size</displayName><dynamic>false</dynamic><name>Maximum Buffer Size</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Evaluation Mode</key><value><allowableValues><displayName>Line-by-Line</displayName><value>Line-by-Line</value></allowableValues><allowableValues><displayName>Entire text</displayName><value>Entire text</value></allowableValues><defaultValue>Entire text</defaultValue><description>Evaluate the 'Regular Expression' against each line (Line-by-Line) or buffer the entire file into memory (Entire Text) and then evaluate the 'Regular Expression'.</description><displayName>Evaluation Mode</displayName><dynamic>false</dynamic><name>Evaluation Mode</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><lossTolerant>false</lossTolerant><penaltyDuration>30 sec</penaltyDuration><properties><entry><key>Regular Expression</key><value>^([^ ]*).+\[(.+)\] &quot;(\w+) ([^ ]+) .*&quot; (\w+) ([^ ]*) (.*)</value></entry><entry><key>Replacement Value</key><value>{ &quot;ip&quot;:&quot;$1&quot;, &quot;time&quot;:&quot;$2&quot;, &quot;method&quot;:&quot;$3&quot;, &quot;path&quot;:&quot;$4&quot;, &quot;result&quot;:&quot;$5&quot;, &quot;size&quot;:&quot;$6&quot; }</value></entry><entry><key>Character Set</key><value>UTF-8</value></entry><entry><key>Maximum Buffer Size</key><value>16 KB</value></entry><entry><key>Evaluation Mode</key><value>Entire text</value></entry></properties><runDurationMillis>0</runDurationMillis><schedulingPeriod>300 millis</schedulingPeriod><schedulingStrategy>TIMER_DRIVEN</schedulingStrategy><yieldDuration>1 sec</yieldDuration></config><name>transform log line into json</name><relationships><autoTerminate>true</autoTerminate><description>FlowFiles that could not be updated are routed to this relationship</description><name>failure</name></relationships><relationships><autoTerminate>false</autoTerminate><description>FlowFiles that have been successfully updated are routed to this relationship, as well as FlowFiles whose content does not match the given Regular Expression</description><name>success</name></relationships><state>STOPPED</state><style/><supportsEventDriven>true</supportsEventDriven><supportsParallelProcessing>true</supportsParallelProcessing><type>org.apache.nifi.processors.standard.ReplaceText</type></processors><processors><id>20e23fa3-64e9-4f3f-bd98-442a6631e325</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><position><x>866.3656616210938</x><y>367.87696075439453</y></position><config><bulletinLevel>WARN</bulletinLevel><comments></comments><concurrentlySchedulableTaskCount>0</concurrentlySchedulableTaskCount><defaultConcurrentTasks><entry><key>TIMER_DRIVEN</key><value>1</value></entry><entry><key>EVENT_DRIVEN</key><value>0</value></entry><entry><key>CRON_DRIVEN</key><value>1</value></entry></defaultConcurrentTasks><defaultSchedulingPeriod><entry><key>TIMER_DRIVEN</key><value>0 sec</value></entry><entry><key>CRON_DRIVEN</key><value>* * * * * ?</value></entry></defaultSchedulingPeriod><descriptors><entry><key>outbound address</key><value><description>address where outbound message will be published</description><displayName>outbound address</displayName><dynamic>false</dynamic><name>outbound address</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Vertx Service</key><value><allowableValues><displayName>VertxService</displayName><value>47a71a8f-4550-4f34-8d57-56fb651b52da</value></allowableValues><description>The ControllerService that is used to obtain eventBus instance</description><displayName>Vertx Service</displayName><dynamic>false</dynamic><identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface</identifiesControllerService><name>Vertx Service</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><lossTolerant>false</lossTolerant><penaltyDuration>30 sec</penaltyDuration><properties><entry><key>outbound address</key><value>log</value></entry><entry><key>Vertx Service</key><value>47a71a8f-4550-4f34-8d57-56fb651b52da</value></entry></properties><runDurationMillis>0</runDurationMillis><schedulingPeriod>0 sec</schedulingPeriod><schedulingStrategy>EVENT_DRIVEN</schedulingStrategy><yieldDuration>1 sec</yieldDuration></config><name>send log json to EvenBus</name><relationships><autoTerminate>true</autoTerminate><description>any flowFile that cannot be published to EventBus will be routed to failure</description><name>failure</name></relationships><relationships><autoTerminate>true</autoTerminate><description>Relationship for successfully received FlowFiles</description><name>success</name></relationships><state>STOPPED</state><style/><supportsEventDriven>true</supportsEventDriven><supportsParallelProcessing>true</supportsParallelProcessing><type>com.crossbusiness.nifi.processors.SendEventBus</type></processors><processors><id>7b17dec1-2d6f-4587-b890-cf152242d0a3</id><parentGroupId>fd4661d0-4055-4757-9c94-3bb31e2eda3b</parentGroupId><position><x>172.1650390625</x><y>219.64722442626953</y></position><config><bulletinLevel>WARN</bulletinLevel><comments></comments><concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount><defaultConcurrentTasks><entry><key>TIMER_DRIVEN</key><value>1</value></entry><entry><key>EVENT_DRIVEN</key><value>0</value></entry><entry><key>CRON_DRIVEN</key><value>1</value></entry></defaultConcurrentTasks><defaultSchedulingPeriod><entry><key>TIMER_DRIVEN</key><value>0 sec</value></entry><entry><key>CRON_DRIVEN</key><value>* * * * * ?</value></entry></defaultSchedulingPeriod><descriptors><entry><key>Line Split Count</key><value><description>The number of lines that will be added to each split file</description><displayName>Line Split Count</displayName><dynamic>false</dynamic><name>Line Split Count</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Header Line Count</key><value><defaultValue>0</defaultValue><description>The number of lines that should be considered part of the header; the header lines will be duplicated to all split files</description><displayName>Header Line Count</displayName><dynamic>false</dynamic><name>Header Line Count</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry><entry><key>Remove Trailing Newlines</key><value><allowableValues><displayName>true</displayName><value>true</value></allowableValues><allowableValues><displayName>false</displayName><value>false</value></allowableValues><defaultValue>true</defaultValue><description>Whether to remove newlines at the end of each split file. This should be false if you intend to merge the split files later</description><displayName>Remove Trailing Newlines</displayName><dynamic>false</dynamic><name>Remove Trailing Newlines</name><required>true</required><sensitive>false</sensitive><supportsEl>false</supportsEl></value></entry></descriptors><lossTolerant>false</lossTolerant><penaltyDuration>30 sec</penaltyDuration><properties><entry><key>Line Split Count</key><value>1</value></entry><entry><key>Header Line Count</key><value>0</value></entry><entry><key>Remove Trailing Newlines</key><value>true</value></entry></properties><runDurationMillis>0</runDurationMillis><schedulingPeriod>0 sec</schedulingPeriod><schedulingStrategy>TIMER_DRIVEN</schedulingStrategy><yieldDuration>1 sec</yieldDuration></config><name>split log file and feed line by line</name><relationships><autoTerminate>true</autoTerminate><description>If a file cannot be split for some reason, the original file will be routed to this destination and nothing will be routed elsewhere</description><name>failure</name></relationships><relationships><autoTerminate>true</autoTerminate><description>The original input file will be routed to this destination when it has been successfully split into 1 or more files</description><name>original</name></relationships><relationships><autoTerminate>false</autoTerminate><description>The split files will be routed to this destination when an input file is successfully split into 1 or more split files</description><name>splits</name></relationships><state>STOPPED</state><style/><supportsEventDriven>true</supportsEventDriven><supportsParallelProcessing>true</supportsParallelProcessing><type>org.apache.nifi.processors.standard.SplitText</type></processors></contents><disabledCount>0</disabledCount><inactiveRemotePortCount>0</inactiveRemotePortCount><inputPortCount>0</inputPortCount><invalidCount>0</invalidCount><name>IRM Logs KPI</name><outputPortCount>0</outputPortCount><parent><id>640d51ac-6f4d-4a43-87fc-cd2c9510ca65</id><name>NiFi Flow</name></parent><runningCount>0</runningCount><stoppedCount>6</stoppedCount></processGroups></snippet><timestamp>10/04/2015 11:17:45 PDT</timestamp></template>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template>
+    <description>Ingest logs from folders and UDP port, stream real-time log events to dashboard, persist logs to Solr
+        for historical search
+    </description>
+    <name>collect-stream-logs</name>
+    <snippet>
+        <controllerServices>
+            <id>6c2a6c92-cf75-4dad-a426-65d0043a39b7</id>
+            <comments></comments>
+            <descriptors>
+                <entry>
+                    <key>Listening Port</key>
+                    <value>
+                        <description>the port to listen on for incoming connections</description>
+                        <displayName>Listening Port</displayName>
+                        <dynamic>false</dynamic>
+                        <name>Listening Port</name>
+                        <required>true</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+                <entry>
+                    <key>URL prefix</key>
+                    <value>
+                        <defaultValue>/eventbus/*</defaultValue>
+                        <description>URL context path where clients can connect</description>
+                        <displayName>URL prefix</displayName>
+                        <dynamic>false</dynamic>
+                        <name>URL prefix</name>
+                        <required>false</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+                <entry>
+                    <key>inbound address regex</key>
+                    <value>
+                        <defaultValue>.*</defaultValue>
+                        <description>permitted matches for inbound (client-&gt;server) traffic</description>
+                        <displayName>inbound address regex</displayName>
+                        <dynamic>false</dynamic>
+                        <name>inbound address regex</name>
+                        <required>false</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+                <entry>
+                    <key>outbound address regex</key>
+                    <value>
+                        <defaultValue>.*</defaultValue>
+                        <description>permitted matches for outbound (server-&gt;client) traffic</description>
+                        <displayName>outbound address regex</displayName>
+                        <dynamic>false</dynamic>
+                        <name>outbound address regex</name>
+                        <required>false</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+            </descriptors>
+            <name>VertxService</name>
+            <properties>
+                <entry>
+                    <key>Listening Port</key>
+                    <value>5555</value>
+                </entry>
+                <entry>
+                    <key>URL prefix</key>
+                    <value>/eventbus/*</value>
+                </entry>
+                <entry>
+                    <key>inbound address regex</key>
+                    <value>.*</value>
+                </entry>
+                <entry>
+                    <key>outbound address regex</key>
+                    <value>.*</value>
+                </entry>
+            </properties>
+            <referencingComponents>
+                <activeThreadCount>0</activeThreadCount>
+                <descriptors>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>
+                            <description>address where outbound message will be published</description>
+                            <displayName>outbound address</displayName>
+                            <dynamic>false</dynamic>
+                            <name>outbound address</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>VertxService</displayName>
+                                <value>6c2a6c92-cf75-4dad-a426-65d0043a39b7</value>
+                            </allowableValues>
+                            <description>The ControllerService that is used to obtain eventBus instance</description>
+                            <displayName>Vertx Service</displayName>
+                            <dynamic>false</dynamic>
+                            <identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface
+                            </identifiesControllerService>
+                            <name>Vertx Service</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                <id>e07d0f0e-a537-49bb-851d-419b23b3f03a</id>
+                <name>send log json to EvenBus</name>
+                <properties>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>log</value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>6c2a6c92-cf75-4dad-a426-65d0043a39b7</value>
+                    </entry>
+                </properties>
+                <referenceType>Processor</referenceType>
+                <state>RUNNING</state>
+                <type>com.crossbusiness.nifi.processors.SendEventBus</type>
+            </referencingComponents>
+            <state>ENABLED</state>
+            <type>com.crossbusiness.nifi.controllers.VertxService</type>
+        </controllerServices>
+        <processGroups>
+            <id>0cf88730-3e02-4c18-aa67-d6207a0f33bf</id>
+            <parentGroupId>2ff01468-943b-4762-9eb3-cac99ab61f0e</parentGroupId>
+            <position>
+                <x>910.712646484375</x>
+                <y>222.8416290283203</y>
+            </position>
+            <activeRemotePortCount>0</activeRemotePortCount>
+            <comments>Ingest logs from folders and UDP port, stream real-time log events to dashboard, persist logs to
+                Solr for historical search.
+            </comments>
+            <contents>
+                <connections>
+                    <id>d3548c65-79f0-4d7b-881c-3eb369835887</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>639.4239501953125</x>
+                        <y>202.55335998535156</y>
+                    </bends>
+                    <destination>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>9a39e1e6-7c53-4325-b79b-7701e0529820</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>e645fbe2-459e-4bd0-b993-3dda36856ae2</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>c1a8d53f-bf47-4a82-b9a4-572dd6aa97e1</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>639.4239501953125</x>
+                        <y>350.5533447265625</y>
+                    </bends>
+                    <destination>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>cb49a0ad-65d6-4d80-ad48-027ccd078740</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>splits</selectedRelationships>
+                    <source>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>9a39e1e6-7c53-4325-b79b-7701e0529820</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>3e45843d-72e5-438f-9c79-9ff76bae9920</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>e07d0f0e-a537-49bb-851d-419b23b3f03a</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>cb49a0ad-65d6-4d80-ad48-027ccd078740</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>8a1667db-46a8-4c84-aa60-e10cd3d6214c</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>1311.4239501953125</x>
+                        <y>201.55335998535156</y>
+                    </bends>
+                    <destination>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>0a35c92b-ff17-4fc3-93dd-8fbadda0bf25</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>6d338d10-f37f-4691-8522-ef5b3da4ee73</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>1f9ea255-c894-4732-a67d-a7f6af2c1f41</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>1312.4239501953125</x>
+                        <y>354.5533447265625</y>
+                    </bends>
+                    <destination>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>e07d0f0e-a537-49bb-851d-419b23b3f03a</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers>
+                    <selectedRelationships>matched</selectedRelationships>
+                    <source>
+                        <groupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</groupId>
+                        <id>0a35c92b-ff17-4fc3-93dd-8fbadda0bf25</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <processors>
+                    <id>9a39e1e6-7c53-4325-b79b-7701e0529820</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <position>
+                        <x>164.1650390625</x>
+                        <y>226.64722442626953</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Line Split Count</key>
+                                <value>
+                                    <description>The number of lines that will be added to each split file</description>
+                                    <displayName>Line Split Count</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Line Split Count</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Header Line Count</key>
+                                <value>
+                                    <defaultValue>0</defaultValue>
+                                    <description>The number of lines that should be considered part of the header; the
+                                        header lines will be duplicated to all split files
+                                    </description>
+                                    <displayName>Header Line Count</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Header Line Count</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Remove Trailing Newlines</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>true</defaultValue>
+                                    <description>Whether to remove newlines at the end of each split file. This should
+                                        be false if you intend to merge the split files later
+                                    </description>
+                                    <displayName>Remove Trailing Newlines</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Remove Trailing Newlines</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Line Split Count</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>Header Line Count</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>Remove Trailing Newlines</key>
+                                <value>true</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>split log file and feed line by line</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>If a file cannot be split for some reason, the original file will be routed to this
+                            destination and nothing will be routed elsewhere
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>The original input file will be routed to this destination when it has been
+                            successfully split into 1 or more files
+                        </description>
+                        <name>original</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>The split files will be routed to this destination when an input file is
+                            successfully split into 1 or more split files
+                        </description>
+                        <name>splits</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.SplitText</type>
+                </processors>
+                <processors>
+                    <id>e645fbe2-459e-4bd0-b993-3dda36856ae2</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <position>
+                        <x>165.4239501953125</x>
+                        <y>76.68282318115234</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Input Directory</key>
+                                <value>
+                                    <description>The input directory from which to pull files</description>
+                                    <displayName>Input Directory</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Input Directory</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>File Filter</key>
+                                <value>
+                                    <defaultValue>[^\.].*</defaultValue>
+                                    <description>Only files whose names match the given regular expression will be
+                                        picked up
+                                    </description>
+                                    <displayName>File Filter</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>File Filter</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Path Filter</key>
+                                <value>
+                                    <description>When Recurse Subdirectories is true, then only subdirectories whose
+                                        path matches the given regular expression will be scanned
+                                    </description>
+                                    <displayName>Path Filter</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Path Filter</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Batch Size</key>
+                                <value>
+                                    <defaultValue>10</defaultValue>
+                                    <description>The maximum number of files to pull in each iteration</description>
+                                    <displayName>Batch Size</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Batch Size</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Keep Source File</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>false</defaultValue>
+                                    <description>If true, the file is not deleted after it has been copied to the
+                                        Content Repository; this causes the file to be picked up continually and is
+                                        useful for testing purposes. If not keeping original NiFi will need write
+                                        permissions on the directory it is pulling from otherwise it will ignore the
+                                        file.
+                                    </description>
+                                    <displayName>Keep Source File</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Keep Source File</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Recurse Subdirectories</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>true</defaultValue>
+                                    <description>Indicates whether or not to pull files from subdirectories
+                                    </description>
+                                    <displayName>Recurse Subdirectories</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Recurse Subdirectories</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Polling Interval</key>
+                                <value>
+                                    <defaultValue>0 sec</defaultValue>
+                                    <description>Indicates how long to wait before performing a directory listing
+                                    </description>
+                                    <displayName>Polling Interval</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Polling Interval</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Ignore Hidden Files</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>true</defaultValue>
+                                    <description>Indicates whether or not hidden files should be ignored</description>
+                                    <displayName>Ignore Hidden Files</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Ignore Hidden Files</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Minimum File Age</key>
+                                <value>
+                                    <defaultValue>0 sec</defaultValue>
+                                    <description>The minimum age that a file must be in order to be pulled; any file
+                                        younger than this amount of time (according to last modification date) will be
+                                        ignored
+                                    </description>
+                                    <displayName>Minimum File Age</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Minimum File Age</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Maximum File Age</key>
+                                <value>
+                                    <description>The maximum age that a file must be in order to be pulled; any file
+                                        older than this amount of time (according to last modification date) will be
+                                        ignored
+                                    </description>
+                                    <displayName>Maximum File Age</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Maximum File Age</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Minimum File Size</key>
+                                <value>
+                                    <defaultValue>0 B</defaultValue>
+                                    <description>The minimum size that a file must be in order to be pulled
+                                    </description>
+                                    <displayName>Minimum File Size</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Minimum File Size</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Maximum File Size</key>
+                                <value>
+                                    <description>The maximum size that a file can be in order to be pulled</description>
+                                    <displayName>Maximum File Size</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Maximum File Size</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Input Directory</key>
+                                <value>./data/in</value>
+                            </entry>
+                            <entry>
+                                <key>File Filter</key>
+                                <value>[^\.].*</value>
+                            </entry>
+                            <entry>
+                                <key>Path Filter</key>
+                            </entry>
+                            <entry>
+                                <key>Batch Size</key>
+                                <value>10</value>
+                            </entry>
+                            <entry>
+                                <key>Keep Source File</key>
+                                <value>false</value>
+                            </entry>
+                            <entry>
+                                <key>Recurse Subdirectories</key>
+                                <value>true</value>
+                            </entry>
+                            <entry>
+                                <key>Polling Interval</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>Ignore Hidden Files</key>
+                                <value>true</value>
+                            </entry>
+                            <entry>
+                                <key>Minimum File Age</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>Maximum File Age</key>
+                            </entry>
+                            <entry>
+                                <key>Minimum File Size</key>
+                                <value>0 B</value>
+                            </entry>
+                            <entry>
+                                <key>Maximum File Size</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>load log files from folder</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>All files are routed to success</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.GetFile</type>
+                </processors>
+                <processors>
+                    <id>e07d0f0e-a537-49bb-851d-419b23b3f03a</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <position>
+                        <x>848.3656616210938</x>
+                        <y>376.87696075439453</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>0</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>
+                                    <description>address where outbound message will be published</description>
+                                    <displayName>outbound address</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>outbound address</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>VertxService</displayName>
+                                        <value>6c2a6c92-cf75-4dad-a426-65d0043a39b7</value>
+                                    </allowableValues>
+                                    <description>The ControllerService that is used to obtain eventBus instance
+                                    </description>
+                                    <displayName>Vertx Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>
+                                        com.crossbusiness.nifi.controllers.VertxServiceInterface
+                                    </identifiesControllerService>
+                                    <name>Vertx Service</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>log</value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>6c2a6c92-cf75-4dad-a426-65d0043a39b7</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>EVENT_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>send log json to EvenBus</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>any flowFile that cannot be published to EventBus will be routed to failure
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.SendEventBus</type>
+                </processors>
+                <processors>
+                    <id>6d338d10-f37f-4691-8522-ef5b3da4ee73</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <position>
+                        <x>845.2362670898438</x>
+                        <y>74.55336843005904</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Sending Host</key>
+                                <value>
+                                    <description>IP, or name, of a remote host. Only Datagrams from the specified
+                                        Sending Host Port and this host will be accepted. Improves Performance. May be a
+                                        system property or an environment variable.
+                                    </description>
+                                    <displayName>Sending Host</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Sending Host</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Sending Host Port</key>
+                                <value>
+                                    <description>Port being used by remote host to send Datagrams. Only Datagrams from
+                                        the specified Sending Host and this port will be accepted. Improves Performance.
+                                        May be a system property or an environment variable.
+                                    </description>
+                                    <displayName>Sending Host Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Sending Host Port</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Local Network Interface</key>
+                                <value>
+                                    <description>The name of a local network interface to be used to restrict listening
+                                        for UDP Datagrams to a specific LAN.May be a system property or an environment
+                                        variable.
+                                    </description>
+                                    <displayName>Local Network Interface</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Local Network Interface</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Channel Reader Interval</key>
+                                <value>
+                                    <defaultValue>50 ms</defaultValue>
+                                    <description>Scheduling interval for each read channel.</description>
+                                    <displayName>Channel Reader Interval</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Channel Reader Interval</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile Size Trigger</key>
+                                <value>
+                                    <defaultValue>1 MB</defaultValue>
+                                    <description>Determines the (almost) upper bound size at which a flow file would be
+                                        generated.
+                                    </description>
+                                    <displayName>FlowFile Size Trigger</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFile Size Trigger</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Max Buffer Size</key>
+                                <value>
+                                    <defaultValue>1 MB</defaultValue>
+                                    <description>Determines the size each receive buffer may be</description>
+                                    <displayName>Max Buffer Size</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Max Buffer Size</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Max size of UDP Buffer</key>
+                                <value>
+                                    <defaultValue>1 MB</defaultValue>
+                                    <description>The maximum UDP buffer size that should be used. This is a suggestion
+                                        to the Operating System to indicate how big the udp socket buffer should be.
+                                    </description>
+                                    <displayName>Max size of UDP Buffer</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Max size of UDP Buffer</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Port</key>
+                                <value>
+                                    <description>Port to listen on. Must be known by senders of Datagrams.</description>
+                                    <displayName>Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Port</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Receive Buffer Count</key>
+                                <value>
+                                    <defaultValue>4</defaultValue>
+                                    <description>Number of receiving buffers to be used to accept data from the socket.
+                                        Higher numbers means more ram is allocated but can allow better throughput.
+                                    </description>
+                                    <displayName>Receive Buffer Count</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Receive Buffer Count</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFiles Per Session</key>
+                                <value>
+                                    <defaultValue>10</defaultValue>
+                                    <description>The number of flow files per session.</description>
+                                    <displayName>FlowFiles Per Session</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFiles Per Session</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Receive Timeout</key>
+                                <value>
+                                    <defaultValue>5 secs</defaultValue>
+                                    <description>The time out period when waiting to receive data from the socket.
+                                        Specify units.
+                                    </description>
+                                    <displayName>Receive Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Receive Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile Per Datagram</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>false</defaultValue>
+                                    <description>Determines if this processor emits each datagram as a FlowFile, or if
+                                        multiple datagrams can be placed in a single FlowFile.
+                                    </description>
+                                    <displayName>FlowFile Per Datagram</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFile Per Datagram</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Sending Host</key>
+                            </entry>
+                            <entry>
+                                <key>Sending Host Port</key>
+                            </entry>
+                            <entry>
+                                <key>Local Network Interface</key>
+                            </entry>
+                            <entry>
+                                <key>Channel Reader Interval</key>
+                                <value>50 ms</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile Size Trigger</key>
+                                <value>1 MB</value>
+                            </entry>
+                            <entry>
+                                <key>Max Buffer Size</key>
+                                <value>1 MB</value>
+                            </entry>
+                            <entry>
+                                <key>Max size of UDP Buffer</key>
+                                <value>1 MB</value>
+                            </entry>
+                            <entry>
+                                <key>Port</key>
+                                <value>8888</value>
+                            </entry>
+                            <entry>
+                                <key>Receive Buffer Count</key>
+                                <value>4</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFiles Per Session</key>
+                                <value>10</value>
+                            </entry>
+                            <entry>
+                                <key>Receive Timeout</key>
+                                <value>5 secs</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile Per Datagram</key>
+                                <value>true</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Listen for logs on UDP</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>Connection which contains concatenated Datagram Packets</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.ListenUDP</type>
+                </processors>
+                <processors>
+                    <id>cb49a0ad-65d6-4d80-ad48-027ccd078740</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <position>
+                        <x>164.03558349609375</x>
+                        <y>377.9061050415039</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Regular Expression</key>
+                                <value>
+                                    <defaultValue>(?s:^.*$)</defaultValue>
+                                    <description>The Regular Expression to search for in the FlowFile content
+                                    </description>
+                                    <displayName>Regular Expression</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Regular Expression</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Replacement Value</key>
+                                <value>
+                                    <defaultValue>$1</defaultValue>
+                                    <description>The value to replace the regular expression with. Back-references to
+                                        Regular Expression capturing groups are supported, but back-references that
+                                        reference capturing groups that do not exist in the regular expression will be
+                                        treated as literal value.
+                                    </description>
+                                    <displayName>Replacement Value</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Replacement Value</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Character Set</key>
+                                <value>
+                                    <defaultValue>UTF-8</defaultValue>
+                                    <description>The Character Set in which the file is encoded</description>
+                                    <displayName>Character Set</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Character Set</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Maximum Buffer Size</key>
+                                <value>
+                                    <defaultValue>1 MB</defaultValue>
+                                    <description>Specifies the maximum amount of data to buffer (per file or per line,
+                                        depending on the Evaluation Mode) in order to apply the regular expressions. If
+                                        'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than
+                                        this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if
+                                        a single line is larger than this value, the FlowFile will be routed to
+                                        'failure'. A default value of 1 MB is provided, primarily for 'Entire Text'
+                                        mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This
+                                        value is ignored and the buffer is not used if 'Regular Expression' is set to
+                                        '.*'
+                                    </description>
+                                    <displayName>Maximum Buffer Size</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Maximum Buffer Size</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Evaluation Mode</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>Line-by-Line</displayName>
+                                        <value>Line-by-Line</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>Entire text</displayName>
+                                        <value>Entire text</value>
+                                    </allowableValues>
+                                    <defaultValue>Entire text</defaultValue>
+                                    <description>Evaluate the 'Regular Expression' against each line (Line-by-Line) or
+                                        buffer the entire file into memory (Entire Text) and then evaluate the 'Regular
+                                        Expression'.
+                                    </description>
+                                    <displayName>Evaluation Mode</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Evaluation Mode</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Regular Expression</key>
+                                <value>^([^ ]*).+\[(.+)\] &quot;(\w+) ([^ ]+) .*&quot; (\w+) ([^ ]*) (.*)</value>
+                            </entry>
+                            <entry>
+                                <key>Replacement Value</key>
+                                <value>{ &quot;ip&quot;:&quot;$1&quot;, &quot;time&quot;:&quot;$2&quot;, &quot;method&quot;:&quot;$3&quot;,
+                                    &quot;path&quot;:&quot;$4&quot;, &quot;result&quot;:&quot;$5&quot;, &quot;size&quot;:&quot;$6&quot;
+                                    }
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Character Set</key>
+                                <value>UTF-8</value>
+                            </entry>
+                            <entry>
+                                <key>Maximum Buffer Size</key>
+                                <value>16 KB</value>
+                            </entry>
+                            <entry>
+                                <key>Evaluation Mode</key>
+                                <value>Entire text</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>300 millis</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>transform log line into json</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles that could not be updated are routed to this relationship</description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>FlowFiles that have been successfully updated are routed to this relationship, as
+                            well as FlowFiles whose content does not match the given Regular Expression
+                        </description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.ReplaceText</type>
+                </processors>
+                <processors>
+                    <id>0a35c92b-ff17-4fc3-93dd-8fbadda0bf25</id>
+                    <parentGroupId>0cf88730-3e02-4c18-aa67-d6207a0f33bf</parentGroupId>
+                    <position>
+                        <x>846.6307983398438</x>
+                        <y>227.37860570422896</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>0</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Destination</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>flowfile-content</displayName>
+                                        <value>flowfile-content</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>flowfile-attribute</displayName>
+                                        <value>flowfile-attribute</value>
+                                    </allowableValues>
+                                    <defaultValue>flowfile-content</defaultValue>
+                                    <description>Indicates whether the results of the JsonPath evaluation are written to
+                                        the FlowFile content or a FlowFile attribute; if using attribute, must specify
+                                        the Attribute Name property. If set to flowfile-content, only one JsonPath may
+                                        be specified, and the property name is ignored.
+                                    </description>
+                                    <displayName>Destination</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Destination</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Return Type</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>auto-detect</displayName>
+                                        <value>auto-detect</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>json</displayName>
+                                        <value>json</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>scalar</displayName>
+                                        <value>scalar</value>
+                                    </allowableValues>
+                                    <defaultValue>auto-detect</defaultValue>
+                                    <description>Indicates the desired return type of the JSON Path expressions.
+                                        Selecting 'auto-detect' will set the return type to 'json' for a Destination of
+                                        'flowfile-content', and 'scalar' for a Destination of 'flowfile-attribute'.
+                                    </description>
+                                    <displayName>Return Type</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Return Type</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Path Not Found Behavior</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>warn</displayName>
+                                        <value>warn</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>ignore</displayName>
+                                        <value>ignore</value>
+                                    </allowableValues>
+                                    <defaultValue>ignore</defaultValue>
+                                    <description>Indicates how to handle missing JSON path expressions when destination
+                                        is set to 'flowfile-attribute'. Selecting 'warn' will generate a warning when a
+                                        JSON path expression is not found.
+                                    </description>
+                                    <displayName>Path Not Found Behavior</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Path Not Found Behavior</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Null Value Representation</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>empty string</displayName>
+                                        <value>empty string</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>the string 'null'</displayName>
+                                        <value>the string 'null'</value>
+                                    </allowableValues>
+                                    <defaultValue>empty string</defaultValue>
+                                    <description>Indicates the desired representation of JSON Path expressions resulting
+                                        in a null value.
+                                    </description>
+                                    <displayName>Null Value Representation</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Null Value Representation</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>log</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>log</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>log</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Destination</key>
+                                <value>flowfile-content</value>
+                            </entry>
+                            <entry>
+                                <key>Return Type</key>
+                                <value>json</value>
+                            </entry>
+                            <entry>
+                                <key>Path Not Found Behavior</key>
+                                <value>ignore</value>
+                            </entry>
+                            <entry>
+                                <key>Null Value Representation</key>
+                                <value>empty string</value>
+                            </entry>
+                            <entry>
+                                <key>log</key>
+                                <value>$.message</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>EVENT_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>test only - copy $.message</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles are routed to this relationship when the JsonPath cannot be evaluated
+                            against the content of the FlowFile; for instance, if the FlowFile is not valid JSON
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>FlowFiles are routed to this relationship when the JsonPath is successfully
+                            evaluated and the FlowFile is modified as a result
+                        </description>
+                        <name>matched</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles are routed to this relationship when the JsonPath does not match the
+                            content of the FlowFile and the Destination is set to flowfile-content
+                        </description>
+                        <name>unmatched</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+                </processors>
+            </contents>
+            <disabledCount>0</disabledCount>
+            <inactiveRemotePortCount>0</inactiveRemotePortCount>
+            <inputPortCount>0</inputPortCount>
+            <invalidCount>0</invalidCount>
+            <name>Collect Stream Logs</name>
+            <outputPortCount>0</outputPortCount>
+            <parent>
+                <id>2ff01468-943b-4762-9eb3-cac99ab61f0e</id>
+                <name>NiFi Flow</name>
+            </parent>
+            <runningCount>3</runningCount>
+            <stoppedCount>3</stoppedCount>
+        </processGroups>
+    </snippet>
+    <timestamp>10/04/2015 15:11:56 PDT</timestamp>
+</template>
