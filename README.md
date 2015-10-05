@@ -9,8 +9,8 @@ This [flow](./collect-stream-logs/) shows workflow for log collection, aggregati
 
 1. Ingest logs from folders.
 2. Listen for syslogs on UDP port.
-3. Merge syslogs and drop-in logs and persist them to Solr for historical search. 
-4. Stream real-time log events and cross-filter historical logs on dashboard. 
+3. Merge syslogs and drop-in logs and persist merged logs to Solr for historical search. 
+4. Dashboard: stream real-time log events to dashboard and enable cross-filter search on historical logs data.
 
 #### csv-to-json
 
