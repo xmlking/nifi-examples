@@ -8,8 +8,11 @@ collect-stream-logs
 
 Note: this flow depends on **nifi-websocket** module, download [nar](https://github.com/xmlking/nifi-websocket/releases/download/0.1.0/nifi-websocket-0.1.0-SNAPSHOT.nar) and copy to `$NIFI_HOME/lib`
 
+### Flow
+![logs dataflow](./logs-flow.png)
+
 ### Demo
-![streaming logs](./log-demo.png)
+![streaming logs](./logs-demo.png)
 
 ### Reference 
 1. [Collecting Logs with Apache NiFi](http://bryanbende.com/development/2015/05/17/collecting-logs-with-apache-nifi/)
