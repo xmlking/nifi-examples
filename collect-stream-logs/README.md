@@ -9,6 +9,11 @@ collect-stream-logs
 Note: this flow depends on **nifi-websocket** module, download [nar](https://github.com/xmlking/nifi-websocket/releases/download/0.1.0/nifi-websocket-0.1.0-SNAPSHOT.nar) and copy to `$NIFI_HOME/lib`
 
 ### Flow
+```bash
+gradle :collect-stream-logs:log-generator:run
+```
+
+### Flow
 ![logs dataflow](./logs-flow.png)
 
 ### Demo
