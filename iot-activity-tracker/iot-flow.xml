@@ -1,0 +1,3170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template>
+    <description>IoT Demo v3</description>
+    <name>IoT Demo v3</name>
+    <snippet>
+        <controllerServices>
+            <id>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</id>
+            <comments></comments>
+            <descriptors>
+                <entry>
+                    <key>Listening Port</key>
+                    <value>
+                        <description>the port to listen on for incoming connections</description>
+                        <displayName>Listening Port</displayName>
+                        <dynamic>false</dynamic>
+                        <name>Listening Port</name>
+                        <required>true</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+                <entry>
+                    <key>URL prefix</key>
+                    <value>
+                        <defaultValue>/eventbus/*</defaultValue>
+                        <description>URL context path where clients can connect</description>
+                        <displayName>URL prefix</displayName>
+                        <dynamic>false</dynamic>
+                        <name>URL prefix</name>
+                        <required>false</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+                <entry>
+                    <key>inbound address regex</key>
+                    <value>
+                        <defaultValue>.*</defaultValue>
+                        <description>permitted matches for inbound (client-&gt;server) traffic</description>
+                        <displayName>inbound address regex</displayName>
+                        <dynamic>false</dynamic>
+                        <name>inbound address regex</name>
+                        <required>false</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+                <entry>
+                    <key>outbound address regex</key>
+                    <value>
+                        <defaultValue>.*</defaultValue>
+                        <description>permitted matches for outbound (server-&gt;client) traffic</description>
+                        <displayName>outbound address regex</displayName>
+                        <dynamic>false</dynamic>
+                        <name>outbound address regex</name>
+                        <required>false</required>
+                        <sensitive>false</sensitive>
+                        <supportsEl>false</supportsEl>
+                    </value>
+                </entry>
+            </descriptors>
+            <name>VertxService</name>
+            <properties>
+                <entry>
+                    <key>Listening Port</key>
+                    <value>5555</value>
+                </entry>
+                <entry>
+                    <key>URL prefix</key>
+                    <value>/eventbus/*</value>
+                </entry>
+                <entry>
+                    <key>inbound address regex</key>
+                    <value>.*</value>
+                </entry>
+                <entry>
+                    <key>outbound address regex</key>
+                    <value>.*</value>
+                </entry>
+            </properties>
+            <referencingComponents>
+                <activeThreadCount>0</activeThreadCount>
+                <descriptors>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>
+                            <description>address where outbound message will be published</description>
+                            <displayName>outbound address</displayName>
+                            <dynamic>false</dynamic>
+                            <name>outbound address</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                        <value>
+                            <description>Specifies the Regular Expression that determines the names of FlowFile
+                                attributes that should be passed along as Message Headers
+                            </description>
+                            <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                            <dynamic>false</dynamic>
+                            <name>FlowFile attributes to receive as message headers (Regex)</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>VertxService</displayName>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </allowableValues>
+                            <description>The ControllerService that is used to obtain eventBus instance</description>
+                            <displayName>Vertx Service</displayName>
+                            <dynamic>false</dynamic>
+                            <identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface
+                            </identifiesControllerService>
+                            <name>Vertx Service</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                <id>1958619e-4e59-4fc9-b360-9dc8d5ca13c7</id>
+                <name>Publish IoT data to EB on dynamic topic</name>
+                <properties>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>iot.in.${sensor}</value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                        <value>sensor</value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                    </entry>
+                </properties>
+                <referenceType>Processor</referenceType>
+                <state>STOPPED</state>
+                <type>com.crossbusiness.nifi.processors.PublishEventBus</type>
+            </referencingComponents>
+            <referencingComponents>
+                <activeThreadCount>0</activeThreadCount>
+                <descriptors>
+                    <entry>
+                        <key>inbound address</key>
+                        <value>
+                            <description>The address where this processor will subscribe to eventBus to receive
+                                messages
+                            </description>
+                            <displayName>inbound address</displayName>
+                            <dynamic>false</dynamic>
+                            <name>inbound address</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Message Headers to receive as Attributes (Regex)</key>
+                        <value>
+                            <description>Specifies the Regular Expression that determines the names of Message Headers
+                                that should be passed along as FlowFile attributes
+                            </description>
+                            <displayName>Message Headers to receive as Attributes (Regex)</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Message Headers to receive as Attributes (Regex)</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>VertxService</displayName>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </allowableValues>
+                            <description>The ControllerService that is used to obtain eventBus instance</description>
+                            <displayName>Vertx Service</displayName>
+                            <dynamic>false</dynamic>
+                            <identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface
+                            </identifiesControllerService>
+                            <name>Vertx Service</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                <id>50c2599e-71c3-4a88-a2b6-1b40fe8b3525</id>
+                <name>Ingest IoT data over WebSocket</name>
+                <properties>
+                    <entry>
+                        <key>inbound address</key>
+                        <value>iot.in.hr</value>
+                    </entry>
+                    <entry>
+                        <key>Message Headers to receive as Attributes (Regex)</key>
+                        <value>sensor</value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                    </entry>
+                </properties>
+                <referenceType>Processor</referenceType>
+                <state>STOPPED</state>
+                <type>com.crossbusiness.nifi.processors.GetEventBus</type>
+            </referencingComponents>
+            <referencingComponents>
+                <activeThreadCount>0</activeThreadCount>
+                <descriptors>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>
+                            <description>address where outbound message will be published</description>
+                            <displayName>outbound address</displayName>
+                            <dynamic>false</dynamic>
+                            <name>outbound address</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                        <value>
+                            <description>Specifies the Regular Expression that determines the names of FlowFile
+                                attributes that should be passed along as Message Headers
+                            </description>
+                            <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                            <dynamic>false</dynamic>
+                            <name>FlowFile attributes to receive as message headers (Regex)</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>VertxService</displayName>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </allowableValues>
+                            <description>The ControllerService that is used to obtain eventBus instance</description>
+                            <displayName>Vertx Service</displayName>
+                            <dynamic>false</dynamic>
+                            <identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface
+                            </identifiesControllerService>
+                            <name>Vertx Service</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                <id>e724918a-cc5f-450a-a3c9-2be531f6faba</id>
+                <name>Publish data to EB on user specific Topic</name>
+                <properties>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>iot.out.${id}.${sensor}</value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                    </entry>
+                </properties>
+                <referenceType>Processor</referenceType>
+                <state>STOPPED</state>
+                <type>com.crossbusiness.nifi.processors.PublishEventBus</type>
+            </referencingComponents>
+            <referencingComponents>
+                <activeThreadCount>0</activeThreadCount>
+                <descriptors>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>
+                            <description>address where outbound message will be published</description>
+                            <displayName>outbound address</displayName>
+                            <dynamic>false</dynamic>
+                            <name>outbound address</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                        <value>
+                            <description>Specifies the Regular Expression that determines the names of FlowFile
+                                attributes that should be passed along as Message Headers
+                            </description>
+                            <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                            <dynamic>false</dynamic>
+                            <name>FlowFile attributes to receive as message headers (Regex)</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>VertxService</displayName>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </allowableValues>
+                            <description>The ControllerService that is used to obtain eventBus instance</description>
+                            <displayName>Vertx Service</displayName>
+                            <dynamic>false</dynamic>
+                            <identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface
+                            </identifiesControllerService>
+                            <name>Vertx Service</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                <id>48258dc2-b99d-43ef-8967-9cf99a92102c</id>
+                <name>Send inactive event to EB</name>
+                <properties>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>iot.out.${id}.activity.inactive</value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                    </entry>
+                </properties>
+                <referenceType>Processor</referenceType>
+                <state>STOPPED</state>
+                <type>com.crossbusiness.nifi.processors.SendEventBus</type>
+            </referencingComponents>
+            <referencingComponents>
+                <activeThreadCount>0</activeThreadCount>
+                <descriptors>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>
+                            <description>address where outbound message will be published</description>
+                            <displayName>outbound address</displayName>
+                            <dynamic>false</dynamic>
+                            <name>outbound address</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                        <value>
+                            <description>Specifies the Regular Expression that determines the names of FlowFile
+                                attributes that should be passed along as Message Headers
+                            </description>
+                            <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                            <dynamic>false</dynamic>
+                            <name>FlowFile attributes to receive as message headers (Regex)</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>VertxService</displayName>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </allowableValues>
+                            <description>The ControllerService that is used to obtain eventBus instance</description>
+                            <displayName>Vertx Service</displayName>
+                            <dynamic>false</dynamic>
+                            <identifiesControllerService>com.crossbusiness.nifi.controllers.VertxServiceInterface
+                            </identifiesControllerService>
+                            <name>Vertx Service</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                <id>f283f62a-4a16-4173-8edd-f2c07c112bd6</id>
+                <name>Send activity restored event to EB</name>
+                <properties>
+                    <entry>
+                        <key>outbound address</key>
+                        <value>iot.out.${id}.activity.restored</value>
+                    </entry>
+                    <entry>
+                        <key>FlowFile attributes to receive as message headers (Regex)</key>
+                    </entry>
+                    <entry>
+                        <key>Vertx Service</key>
+                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                    </entry>
+                </properties>
+                <referenceType>Processor</referenceType>
+                <state>STOPPED</state>
+                <type>com.crossbusiness.nifi.processors.SendEventBus</type>
+            </referencingComponents>
+            <state>ENABLED</state>
+            <type>com.crossbusiness.nifi.controllers.VertxService</type>
+        </controllerServices>
+        <processGroups>
+            <id>672d068f-2fa9-4237-9b69-db5d756f80d0</id>
+            <parentGroupId>640d51ac-6f4d-4a43-87fc-cd2c9510ca65</parentGroupId>
+            <position>
+                <x>-467.70624513740347</x>
+                <y>-36.782313856967676</y>
+            </position>
+            <activeRemotePortCount>0</activeRemotePortCount>
+            <comments></comments>
+            <contents>
+                <connections>
+                    <id>c54fc2bd-26ed-4ba6-a5e9-9cee565c5abb</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>e8f2fefb-9d92-468c-9525-51db10da908b</id>
+                        <type>FUNNEL</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>matched</selectedRelationships>
+                    <selectedRelationships>unmatched</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>f527c043-bff3-409d-9611-965d45d20622</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>bbc0e277-047c-498a-8bd2-f91bb6f1b95b</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>f9516f79-8c2a-4237-9b0c-1e03a84036ec</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>e8f2fefb-9d92-468c-9525-51db10da908b</id>
+                        <type>FUNNEL</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>4c201d61-e0ab-4c45-8c91-02be63df6d9d</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>8b01f9bc-8201-4cc1-8c56-8328756f3151</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>danger</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>67886505-3d48-4f54-a82d-297330d8d3b8</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>5c2a34b2-3cb9-4886-a138-dc93cb631709</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>487.86169952528826</x>
+                        <y>33.41496367656896</y>
+                    </bends>
+                    <bends>
+                        <x>692.918767396382</x>
+                        <y>36.06942458355138</y>
+                    </bends>
+                    <bends>
+                        <x>692.5673269666945</x>
+                        <y>-78.2802534559994</y>
+                    </bends>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>f527c043-bff3-409d-9611-965d45d20622</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>50c2599e-71c3-4a88-a2b6-1b40fe8b3525</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>e6c72c5b-bd0a-452e-9103-6ffc98874709</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>1162.6024169921875</x>
+                        <y>40.62712860107422</y>
+                    </bends>
+                    <bends>
+                        <x>1162.6024169921875</x>
+                        <y>-76.97286987304688</y>
+                    </bends>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>e724918a-cc5f-450a-a3c9-2be531f6faba</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>0</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>e8f2fefb-9d92-468c-9525-51db10da908b</id>
+                        <type>FUNNEL</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>cc5e4e4c-1485-42fb-bfd0-4ec16745579f</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>2d542c23-8112-4b97-9f92-ddc0fee40f5c</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>e8f2fefb-9d92-468c-9525-51db10da908b</id>
+                        <type>FUNNEL</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>e5fb3732-0ca3-4f23-b349-b8310ba5ddf6</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>1958619e-4e59-4fc9-b360-9dc8d5ca13c7</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>5f54c1ff-7355-492c-bccf-3bdffb760b9f</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>50c9d72e-3699-4fd0-a4c8-f300779a2884</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>488.93079132216326</x>
+                        <y>135.18427748882482</y>
+                    </bends>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>67886505-3d48-4f54-a82d-297330d8d3b8</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>e8f2fefb-9d92-468c-9525-51db10da908b</id>
+                        <type>FUNNEL</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>0349f295-42e6-40fd-94b5-ae061ad9cf4a</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>1386.1510061659133</x>
+                        <y>342.3898438950748</y>
+                    </bends>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>f283f62a-4a16-4173-8edd-f2c07c112bd6</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>activity.restored</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>2d542c23-8112-4b97-9f92-ddc0fee40f5c</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>d3f4d9e2-d6cf-4ede-9a2c-609ba7e1709b</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>48258dc2-b99d-43ef-8967-9cf99a92102c</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>inactive</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>2d542c23-8112-4b97-9f92-ddc0fee40f5c</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>81fed324-1229-43ba-a5ce-80fc0b072911</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>63.4552893080031</x>
+                        <y>341.38401503765294</y>
+                    </bends>
+                    <destination>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>acb034cd-6a26-4c7f-b822-ba798995fb57</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>warning</selectedRelationships>
+                    <source>
+                        <groupId>672d068f-2fa9-4237-9b69-db5d756f80d0</groupId>
+                        <id>67886505-3d48-4f54-a82d-297330d8d3b8</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <funnels>
+                    <id>e8f2fefb-9d92-468c-9525-51db10da908b</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>879.2324270643508</x>
+                        <y>104.16154952251622</y>
+                    </position>
+                </funnels>
+                <processors>
+                    <id>2d542c23-8112-4b97-9f92-ddc0fee40f5c</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>755.9556936659133</x>
+                        <y>292.41910262310216</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Threshold Duration</key>
+                                <value>
+                                    <defaultValue>5 min</defaultValue>
+                                    <description>Determines how much time must elapse before considering the flow to be
+                                        inactive
+                                    </description>
+                                    <displayName>Threshold Duration</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Threshold Duration</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Continually Send Messages</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>false</defaultValue>
+                                    <description>If true, will send inactivity indicator continually every Threshold
+                                        Duration amount of time until activity is restored; if false, will send an
+                                        indicator only when the flow first becomes inactive
+                                    </description>
+                                    <displayName>Continually Send Messages</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Continually Send Messages</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Inactivity Message</key>
+                                <value>
+                                    <defaultValue>Lacking activity as of time: ${now():format('yyyy/MM/dd HH:mm:ss')};
+                                        flow has been inactive for ${inactivityDurationMillis:toNumber():divide(60000)}
+                                        minutes
+                                    </defaultValue>
+                                    <description>The message that will be the content of FlowFiles that are sent to the
+                                        'inactive' relationship
+                                    </description>
+                                    <displayName>Inactivity Message</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Inactivity Message</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Activity Restored Message</key>
+                                <value>
+                                    <defaultValue>Activity restored at time: ${now():format('yyyy/MM/dd HH:mm:ss')}
+                                        after being inactive for ${inactivityDurationMillis:toNumber():divide(60000)}
+                                        minutes
+                                    </defaultValue>
+                                    <description>The message that will be the content of FlowFiles that are sent to
+                                        'activity.restored' relationship
+                                    </description>
+                                    <displayName>Activity Restored Message</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Activity Restored Message</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Copy Attributes</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>false</defaultValue>
+                                    <description>If true, will copy all flow file attributes from the flow file that
+                                        resumed activity to the newly created indicator flow file
+                                    </description>
+                                    <displayName>Copy Attributes</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Copy Attributes</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Threshold Duration</key>
+                                <value>5 sec</value>
+                            </entry>
+                            <entry>
+                                <key>Continually Send Messages</key>
+                                <value>true</value>
+                            </entry>
+                            <entry>
+                                <key>Inactivity Message</key>
+                                <value>Lacking activity as of time: ${now():format('yyyy/MM/dd HH:mm:ss')}; flow has
+                                    been
+                                    inactive for ${inactivityDurationMillis:toNumber():divide(60000)} minutes
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Activity Restored Message</key>
+                                <value>Activity restored at time: ${now():format('yyyy/MM/dd HH:mm:ss')} after being
+                                    inactive
+                                    for ${inactivityDurationMillis:toNumber():divide(60000)} minutes
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Copy Attributes</key>
+                                <value>false</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>MonitorActivity</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>This relationship is used to transfer an Activity Restored indicator when FlowFiles
+                            are routing to 'success' following a period of inactivity
+                        </description>
+                        <name>activity.restored</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>This relationship is used to transfer an Inactivity indicator when no FlowFiles are
+                            routed to 'success' for Threshold Duration amount of time
+                        </description>
+                        <name>inactive</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>All incoming FlowFiles are routed to success</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>false</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.MonitorActivity</type>
+                </processors>
+                <processors>
+                    <id>1958619e-4e59-4fc9-b360-9dc8d5ca13c7</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>-92.99749933318765</x>
+                        <y>81.42713006348026</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>
+                                    <description>address where outbound message will be published</description>
+                                    <displayName>outbound address</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>outbound address</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                                <value>
+                                    <description>Specifies the Regular Expression that determines the names of FlowFile
+                                        attributes that should be passed along as Message Headers
+                                    </description>
+                                    <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFile attributes to receive as message headers (Regex)</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>VertxService</displayName>
+                                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                                    </allowableValues>
+                                    <description>The ControllerService that is used to obtain eventBus instance
+                                    </description>
+                                    <displayName>Vertx Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>
+                                        com.crossbusiness.nifi.controllers.VertxServiceInterface
+                                    </identifiesControllerService>
+                                    <name>Vertx Service</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>iot.in.${sensor}</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                                <value>sensor</value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Publish IoT data to EB on dynamic topic</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>any flowFile that cannot be published to EventBus will be routed to failure
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.PublishEventBus</type>
+                </processors>
+                <processors>
+                    <id>e724918a-cc5f-450a-a3c9-2be531f6faba</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>1250.2026776774214</x>
+                        <y>-127.37289833406882</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>
+                                    <description>address where outbound message will be published</description>
+                                    <displayName>outbound address</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>outbound address</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                                <value>
+                                    <description>Specifies the Regular Expression that determines the names of FlowFile
+                                        attributes that should be passed along as Message Headers
+                                    </description>
+                                    <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFile attributes to receive as message headers (Regex)</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>VertxService</displayName>
+                                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                                    </allowableValues>
+                                    <description>The ControllerService that is used to obtain eventBus instance
+                                    </description>
+                                    <displayName>Vertx Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>
+                                        com.crossbusiness.nifi.controllers.VertxServiceInterface
+                                    </identifiesControllerService>
+                                    <name>Vertx Service</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>iot.out.${id}.${sensor}</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Publish data to EB on user specific Topic</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>any flowFile that cannot be published to EventBus will be routed to failure
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.PublishEventBus</type>
+                </processors>
+                <processors>
+                    <id>acb034cd-6a26-4c7f-b822-ba798995fb57</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>-91.99749933318765</x>
+                        <y>482.68055375427616</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>HTTP Method</key>
+                                <value>
+                                    <defaultValue>GET</defaultValue>
+                                    <description>HTTP request method (GET, POST, PUT, DELETE, HEAD, OPTIONS).
+                                    </description>
+                                    <displayName>HTTP Method</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>HTTP Method</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Remote URL</key>
+                                <value>
+                                    <description>Remote URL which will be connected to, including scheme, host, port,
+                                        path.
+                                    </description>
+                                    <displayName>Remote URL</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Remote URL</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                                <value>
+                                    <description>The SSL Context Service used to provide client certificate information
+                                        for TLS/SSL (https) connections.
+                                    </description>
+                                    <displayName>SSL Context Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService
+                                    </identifiesControllerService>
+                                    <name>SSL Context Service</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Connection Timeout</key>
+                                <value>
+                                    <defaultValue>5 secs</defaultValue>
+                                    <description>Max wait time for connection to remote service.</description>
+                                    <displayName>Connection Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Connection Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Read Timeout</key>
+                                <value>
+                                    <defaultValue>15 secs</defaultValue>
+                                    <description>Max wait time for response from remote service.</description>
+                                    <displayName>Read Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Read Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Include Date Header</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>True</displayName>
+                                        <value>True</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>False</displayName>
+                                        <value>False</value>
+                                    </allowableValues>
+                                    <defaultValue>True</defaultValue>
+                                    <description>Include an RFC-2616 Date header in the request.</description>
+                                    <displayName>Include Date Header</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Include Date Header</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Follow Redirects</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>True</displayName>
+                                        <value>True</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>False</displayName>
+                                        <value>False</value>
+                                    </allowableValues>
+                                    <defaultValue>True</defaultValue>
+                                    <description>Follow HTTP redirects issued by remote server.</description>
+                                    <displayName>Follow Redirects</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Follow Redirects</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Attributes to Send</key>
+                                <value>
+                                    <description>Regular expression that defines which attributes to send as HTTP
+                                        headers in the request. If not defined, no attributes are sent as headers.
+                                    </description>
+                                    <displayName>Attributes to Send</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Attributes to Send</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Username</key>
+                                <value>
+                                    <description>The username to be used by the client to authenticate against the
+                                        Remote URL. Cannot include control characters (0-31), ':', or DEL (127).
+                                    </description>
+                                    <displayName>Basic Authentication Username</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Basic Authentication Username</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Password</key>
+                                <value>
+                                    <description>The password to be used by the client to authenticate against the
+                                        Remote URL.
+                                    </description>
+                                    <displayName>Basic Authentication Password</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Basic Authentication Password</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Host</key>
+                                <value>
+                                    <description>The fully qualified hostname or IP address of the proxy server
+                                    </description>
+                                    <displayName>Proxy Host</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Proxy Host</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Port</key>
+                                <value>
+                                    <description>The port of the proxy server</description>
+                                    <displayName>Proxy Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Proxy Port</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>HTTP Method</key>
+                                <value>GET</value>
+                            </entry>
+                            <entry>
+                                <key>Remote URL</key>
+                                <value>http://apsrd3850:8080/apiApp/notification?topic=/topic/notifications.call&amp;payload={%22id%22:%22C50981533517551%22,%22body%22:%22Heart%20Rate%20exceeded%20100bpm%22,%22subject%22:%22Heart%20Rate%22,%22type%22:%22call%22,%22uri%22:%22/call/C50981533517551%22}</value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                            </entry>
+                            <entry>
+                                <key>Connection Timeout</key>
+                                <value>5 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Read Timeout</key>
+                                <value>15 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Include Date Header</key>
+                                <value>True</value>
+                            </entry>
+                            <entry>
+                                <key>Follow Redirects</key>
+                                <value>True</value>
+                            </entry>
+                            <entry>
+                                <key>Attributes to Send</key>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Username</key>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Password</key>
+                            </entry>
+                            <entry>
+                                <key>Proxy Host</key>
+                            </entry>
+                            <entry>
+                                <key>Proxy Port</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Send dashboard alert (Call Center)</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any type of connection failure, timeout or general
+                            exception.
+                        </description>
+                        <name>Failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any status code that should NOT be retried (1xx, 3xx,
+                            4xx status codes).
+                        </description>
+                        <name>No Retry</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Original FlowFile will be routed upon success (2xx status codes).</description>
+                        <name>Original</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Response FlowFile will be routed upon success (2xx status codes).</description>
+                        <name>Response</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any status code that can be retried (5xx status
+                            codes).
+                        </description>
+                        <name>Retry</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
+                </processors>
+                <processors>
+                    <id>f283f62a-4a16-4173-8edd-f2c07c112bd6</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>1230.885434571675</x>
+                        <y>479.4549302598209</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>0</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>
+                                    <description>address where outbound message will be published</description>
+                                    <displayName>outbound address</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>outbound address</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                                <value>
+                                    <description>Specifies the Regular Expression that determines the names of FlowFile
+                                        attributes that should be passed along as Message Headers
+                                    </description>
+                                    <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFile attributes to receive as message headers (Regex)</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>VertxService</displayName>
+                                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                                    </allowableValues>
+                                    <description>The ControllerService that is used to obtain eventBus instance
+                                    </description>
+                                    <displayName>Vertx Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>
+                                        com.crossbusiness.nifi.controllers.VertxServiceInterface
+                                    </identifiesControllerService>
+                                    <name>Vertx Service</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>iot.out.${id}.activity.restored</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>EVENT_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Send activity restored event to EB</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>any flowFile that cannot be published to EventBus will be routed to failure
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.SendEventBus</type>
+                </processors>
+                <processors>
+                    <id>f9516f79-8c2a-4237-9b0c-1e03a84036ec</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>1254.0172982754366</x>
+                        <y>84.69925060933218</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>HTTP Method</key>
+                                <value>
+                                    <defaultValue>GET</defaultValue>
+                                    <description>HTTP request method (GET, POST, PUT, DELETE, HEAD, OPTIONS).
+                                    </description>
+                                    <displayName>HTTP Method</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>HTTP Method</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Remote URL</key>
+                                <value>
+                                    <description>Remote URL which will be connected to, including scheme, host, port,
+                                        path.
+                                    </description>
+                                    <displayName>Remote URL</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Remote URL</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                                <value>
+                                    <description>The SSL Context Service used to provide client certificate information
+                                        for TLS/SSL (https) connections.
+                                    </description>
+                                    <displayName>SSL Context Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService
+                                    </identifiesControllerService>
+                                    <name>SSL Context Service</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Connection Timeout</key>
+                                <value>
+                                    <defaultValue>5 secs</defaultValue>
+                                    <description>Max wait time for connection to remote service.</description>
+                                    <displayName>Connection Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Connection Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Read Timeout</key>
+                                <value>
+                                    <defaultValue>15 secs</defaultValue>
+                                    <description>Max wait time for response from remote service.</description>
+                                    <displayName>Read Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Read Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Include Date Header</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>True</displayName>
+                                        <value>True</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>False</displayName>
+                                        <value>False</value>
+                                    </allowableValues>
+                                    <defaultValue>True</defaultValue>
+                                    <description>Include an RFC-2616 Date header in the request.</description>
+                                    <displayName>Include Date Header</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Include Date Header</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Follow Redirects</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>True</displayName>
+                                        <value>True</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>False</displayName>
+                                        <value>False</value>
+                                    </allowableValues>
+                                    <defaultValue>True</defaultValue>
+                                    <description>Follow HTTP redirects issued by remote server.</description>
+                                    <displayName>Follow Redirects</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Follow Redirects</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Attributes to Send</key>
+                                <value>
+                                    <description>Regular expression that defines which attributes to send as HTTP
+                                        headers in the request. If not defined, no attributes are sent as headers.
+                                    </description>
+                                    <displayName>Attributes to Send</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Attributes to Send</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Username</key>
+                                <value>
+                                    <description>The username to be used by the client to authenticate against the
+                                        Remote URL. Cannot include control characters (0-31), ':', or DEL (127).
+                                    </description>
+                                    <displayName>Basic Authentication Username</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Basic Authentication Username</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Password</key>
+                                <value>
+                                    <description>The password to be used by the client to authenticate against the
+                                        Remote URL.
+                                    </description>
+                                    <displayName>Basic Authentication Password</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Basic Authentication Password</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Host</key>
+                                <value>
+                                    <description>The fully qualified hostname or IP address of the proxy server
+                                    </description>
+                                    <displayName>Proxy Host</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Proxy Host</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Port</key>
+                                <value>
+                                    <description>The port of the proxy server</description>
+                                    <displayName>Proxy Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Proxy Port</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>HTTP Method</key>
+                                <value>PUT</value>
+                            </entry>
+                            <entry>
+                                <key>Remote URL</key>
+                                <value>http://localhost:8050/v1/documents?uri=/iot/heartrate/${filename}.json&amp;collection=iot,heartrate</value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                            </entry>
+                            <entry>
+                                <key>Connection Timeout</key>
+                                <value>5 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Read Timeout</key>
+                                <value>15 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Include Date Header</key>
+                                <value>True</value>
+                            </entry>
+                            <entry>
+                                <key>Follow Redirects</key>
+                                <value>True</value>
+                            </entry>
+                            <entry>
+                                <key>Attributes to Send</key>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Username</key>
+                                <value>admin</value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Password</key>
+                                <value>admin123</value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Host</key>
+                            </entry>
+                            <entry>
+                                <key>Proxy Port</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Store all IoT events in MarkLogic</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any type of connection failure, timeout or general
+                            exception.
+                        </description>
+                        <name>Failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any status code that should NOT be retried (1xx, 3xx,
+                            4xx status codes).
+                        </description>
+                        <name>No Retry</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Original FlowFile will be routed upon success (2xx status codes).</description>
+                        <name>Original</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Response FlowFile will be routed upon success (2xx status codes).</description>
+                        <name>Response</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any status code that can be retried (5xx status
+                            codes).
+                        </description>
+                        <name>Retry</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
+                </processors>
+                <processors>
+                    <id>f527c043-bff3-409d-9611-965d45d20622</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>754.9745026962314</x>
+                        <y>-128.57286993651974</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Destination</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>flowfile-content</displayName>
+                                        <value>flowfile-content</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>flowfile-attribute</displayName>
+                                        <value>flowfile-attribute</value>
+                                    </allowableValues>
+                                    <defaultValue>flowfile-content</defaultValue>
+                                    <description>Indicates whether the results of the JsonPath evaluation are written to
+                                        the FlowFile content or a FlowFile attribute; if using attribute, must specify
+                                        the Attribute Name property. If set to flowfile-content, only one JsonPath may
+                                        be specified, and the property name is ignored.
+                                    </description>
+                                    <displayName>Destination</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Destination</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Return Type</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>auto-detect</displayName>
+                                        <value>auto-detect</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>json</displayName>
+                                        <value>json</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>scalar</displayName>
+                                        <value>scalar</value>
+                                    </allowableValues>
+                                    <defaultValue>auto-detect</defaultValue>
+                                    <description>Indicates the desired return type of the JSON Path expressions.
+                                        Selecting 'auto-detect' will set the return type to 'json' for a Destination of
+                                        'flowfile-content', and 'scalar' for a Destination of 'flowfile-attribute'.
+                                    </description>
+                                    <displayName>Return Type</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Return Type</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Path Not Found Behavior</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>warn</displayName>
+                                        <value>warn</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>ignore</displayName>
+                                        <value>ignore</value>
+                                    </allowableValues>
+                                    <defaultValue>ignore</defaultValue>
+                                    <description>Indicates how to handle missing JSON path expressions when destination
+                                        is set to 'flowfile-attribute'. Selecting 'warn' will generate a warning when a
+                                        JSON path expression is not found.
+                                    </description>
+                                    <displayName>Path Not Found Behavior</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Path Not Found Behavior</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Null Value Representation</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>empty string</displayName>
+                                        <value>empty string</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>the string 'null'</displayName>
+                                        <value>the string 'null'</value>
+                                    </allowableValues>
+                                    <defaultValue>empty string</defaultValue>
+                                    <description>Indicates the desired representation of JSON Path expressions resulting
+                                        in a null value.
+                                    </description>
+                                    <displayName>Null Value Representation</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Null Value Representation</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>hr</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>hr</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>hr</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>id</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>id</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>id</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>weight</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>weight</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>weight</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Destination</key>
+                                <value>flowfile-attribute</value>
+                            </entry>
+                            <entry>
+                                <key>Return Type</key>
+                                <value>auto-detect</value>
+                            </entry>
+                            <entry>
+                                <key>Path Not Found Behavior</key>
+                                <value>ignore</value>
+                            </entry>
+                            <entry>
+                                <key>Null Value Representation</key>
+                                <value>empty string</value>
+                            </entry>
+                            <entry>
+                                <key>hr</key>
+                                <value>$.hr</value>
+                            </entry>
+                            <entry>
+                                <key>id</key>
+                                <value>$.id</value>
+                            </entry>
+                            <entry>
+                                <key>weight</key>
+                                <value>$.weight</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Extract sensor data into Attributes</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles are routed to this relationship when the JsonPath cannot be evaluated
+                            against the content of the FlowFile; for instance, if the FlowFile is not valid JSON
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>FlowFiles are routed to this relationship when the JsonPath is successfully
+                            evaluated and the FlowFile is modified as a result
+                        </description>
+                        <name>matched</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>FlowFiles are routed to this relationship when the JsonPath does not match the
+                            content of the FlowFile and the Destination is set to flowfile-content
+                        </description>
+                        <name>unmatched</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+                </processors>
+                <processors>
+                    <id>8b01f9bc-8201-4cc1-8c56-8328756f3151</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>334.6115777566306</x>
+                        <y>483.8105975010984</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>SMTP Hostname</key>
+                                <value>
+                                    <description>The hostname of the SMTP host</description>
+                                    <displayName>SMTP Hostname</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP Hostname</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Port</key>
+                                <value>
+                                    <defaultValue>25</defaultValue>
+                                    <description>The Port used for SMTP communications</description>
+                                    <displayName>SMTP Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP Port</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Username</key>
+                                <value>
+                                    <description>Username for the SMTP account</description>
+                                    <displayName>SMTP Username</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP Username</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Password</key>
+                                <value>
+                                    <description>Password for the SMTP account</description>
+                                    <displayName>SMTP Password</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP Password</name>
+                                    <required>false</required>
+                                    <sensitive>true</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Auth</key>
+                                <value>
+                                    <defaultValue>true</defaultValue>
+                                    <description>Flag indicating whether authentication should be used</description>
+                                    <displayName>SMTP Auth</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP Auth</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP TLS</key>
+                                <value>
+                                    <defaultValue>false</defaultValue>
+                                    <description>Flag indicating whether TLS should be enabled</description>
+                                    <displayName>SMTP TLS</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP TLS</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Socket Factory</key>
+                                <value>
+                                    <defaultValue>javax.net.ssl.SSLSocketFactory</defaultValue>
+                                    <description>Socket Factory to use for SMTP Connection</description>
+                                    <displayName>SMTP Socket Factory</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP Socket Factory</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SMTP X-Mailer Header</key>
+                                <value>
+                                    <defaultValue>NiFi</defaultValue>
+                                    <description>X-Mailer used in the header of the outgoing email</description>
+                                    <displayName>SMTP X-Mailer Header</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>SMTP X-Mailer Header</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Content Type</key>
+                                <value>
+                                    <defaultValue>text/plain</defaultValue>
+                                    <description>Mime Type used to interpret the contents of the email, such as
+                                        text/plain or text/html
+                                    </description>
+                                    <displayName>Content Type</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Content Type</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>From</key>
+                                <value>
+                                    <description>Specifies the Email address to use as the sender</description>
+                                    <displayName>From</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>From</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>To</key>
+                                <value>
+                                    <description>The recipients to include in the To-Line of the email</description>
+                                    <displayName>To</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>To</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>CC</key>
+                                <value>
+                                    <description>The recipients to include in the CC-Line of the email</description>
+                                    <displayName>CC</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>CC</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>BCC</key>
+                                <value>
+                                    <description>The recipients to include in the BCC-Line of the email</description>
+                                    <displayName>BCC</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>BCC</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Subject</key>
+                                <value>
+                                    <defaultValue>Message from NiFi</defaultValue>
+                                    <description>The email subject</description>
+                                    <displayName>Subject</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Subject</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Message</key>
+                                <value>
+                                    <defaultValue></defaultValue>
+                                    <description>The body of the email message</description>
+                                    <displayName>Message</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Message</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Attach File</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>false</defaultValue>
+                                    <description>Specifies whether or not the FlowFile content should be attached to the
+                                        email
+                                    </description>
+                                    <displayName>Attach File</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Attach File</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Include All Attributes In Message</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>true</displayName>
+                                        <value>true</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>false</displayName>
+                                        <value>false</value>
+                                    </allowableValues>
+                                    <defaultValue>false</defaultValue>
+                                    <description>Specifies whether or not all FlowFile attributes should be recorded in
+                                        the body of the email message
+                                    </description>
+                                    <displayName>Include All Attributes In Message</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Include All Attributes In Message</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>SMTP Hostname</key>
+                                <value>mail.google.com</value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Port</key>
+                                <value>25</value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Username</key>
+                                <value>schinth</value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Password</key>
+                            </entry>
+                            <entry>
+                                <key>SMTP Auth</key>
+                                <value>true</value>
+                            </entry>
+                            <entry>
+                                <key>SMTP TLS</key>
+                                <value>false</value>
+                            </entry>
+                            <entry>
+                                <key>SMTP Socket Factory</key>
+                                <value>javax.net.ssl.SSLSocketFactory</value>
+                            </entry>
+                            <entry>
+                                <key>SMTP X-Mailer Header</key>
+                                <value>NiFi</value>
+                            </entry>
+                            <entry>
+                                <key>Content Type</key>
+                                <value>text/plain</value>
+                            </entry>
+                            <entry>
+                                <key>From</key>
+                                <value>abcs@google.com</value>
+                            </entry>
+                            <entry>
+                                <key>To</key>
+                                <value>abcs@google.com</value>
+                            </entry>
+                            <entry>
+                                <key>CC</key>
+                            </entry>
+                            <entry>
+                                <key>BCC</key>
+                            </entry>
+                            <entry>
+                                <key>Subject</key>
+                                <value>Message from NiFi</value>
+                            </entry>
+                            <entry>
+                                <key>Message</key>
+                                <value>Heartrate is in danger zone.</value>
+                            </entry>
+                            <entry>
+                                <key>Attach File</key>
+                                <value>false</value>
+                            </entry>
+                            <entry>
+                                <key>Include All Attributes In Message</key>
+                                <value>false</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Send email alert to Doctor</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles that fail to send will be routed to this relationship</description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles that are successfully sent will be routed to this relationship
+                        </description>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.PutEmail</type>
+                </processors>
+                <processors>
+                    <id>67886505-3d48-4f54-a82d-297330d8d3b8</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>333.68642438812583</x>
+                        <y>291.84138902038944</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Routing Strategy</key>
+                                <value>
+                                    <allowableValues>
+                                        <description>A copy of the FlowFile will be routed to each relationship whose
+                                            corresponding expression evaluates to 'true'
+                                        </description>
+                                        <displayName>Route to Property name</displayName>
+                                        <value>Route to Property name</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <description>Requires that all user-defined expressions evaluate to 'true' for
+                                            the FlowFile to be considered a match
+                                        </description>
+                                        <displayName>Route to 'matched' if all match</displayName>
+                                        <value>Route to 'match' if all match</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <description>Requires that at least one user-defined expression evaluate to
+                                            'true' for hte FlowFile to be considered a match
+                                        </description>
+                                        <displayName>Route to 'matched' if any matches</displayName>
+                                        <value>Route to 'match' if any matches</value>
+                                    </allowableValues>
+                                    <defaultValue>Route to Property name</defaultValue>
+                                    <description>Specifies how to determine which relationship to use when evaluating
+                                        the Expression Language
+                                    </description>
+                                    <displayName>Routing Strategy</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Routing Strategy</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>danger</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>danger</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>danger</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>warning</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>warning</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>warning</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>zone1</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>zone1</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>zone1</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>zone2</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>zone2</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>zone2</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>zone3</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>zone3</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>zone3</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>zone4</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>zone4</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>zone4</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>zone5</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>zone5</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>zone5</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>zone6</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>zone6</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>zone6</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Routing Strategy</key>
+                                <value>Route to Property name</value>
+                            </entry>
+                            <entry>
+                                <key>danger</key>
+                                <value>${hr:lt(45):or(${hr:gt(170)})}</value>
+                            </entry>
+                            <entry>
+                                <key>warning</key>
+                                <value>${hr:ge(150):and(${hr:le(170)})}</value>
+                            </entry>
+                            <entry>
+                                <key>zone1</key>
+                                <value>${hr:ge(108):and(${hr:le(117)})}</value>
+                            </entry>
+                            <entry>
+                                <key>zone2</key>
+                                <value>${hr:ge(118):and(${hr:le(135)})}</value>
+                            </entry>
+                            <entry>
+                                <key>zone3</key>
+                                <value>${hr:ge(136):and(${hr:le(148)})}</value>
+                            </entry>
+                            <entry>
+                                <key>zone4</key>
+                                <value>${hr:ge(149):and(${hr:le(161)})}</value>
+                            </entry>
+                            <entry>
+                                <key>zone5</key>
+                                <value>${hr:ge(162):and(${hr:le(170)})}</value>
+                            </entry>
+                            <entry>
+                                <key>zone6</key>
+                                <value>${hr:ge(171):and(${hr:le(180)})}</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>RouteOnAttribute</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description></description>
+                        <name>danger</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles that do not match any user-define expression will be routed here
+                        </description>
+                        <name>unmatched</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description></description>
+                        <name>warning</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description></description>
+                        <name>zone1</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description></description>
+                        <name>zone2</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description></description>
+                        <name>zone3</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description></description>
+                        <name>zone4</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description></description>
+                        <name>zone5</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description></description>
+                        <name>zone6</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
+                </processors>
+                <processors>
+                    <id>50c2599e-71c3-4a88-a2b6-1b40fe8b3525</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>332.31027740614763</x>
+                        <y>-127.76952652728846</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>inbound address</key>
+                                <value>
+                                    <description>The address where this processor will subscribe to eventBus to receive
+                                        messages
+                                    </description>
+                                    <displayName>inbound address</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>inbound address</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Message Headers to receive as Attributes (Regex)</key>
+                                <value>
+                                    <description>Specifies the Regular Expression that determines the names of Message
+                                        Headers that should be passed along as FlowFile attributes
+                                    </description>
+                                    <displayName>Message Headers to receive as Attributes (Regex)</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Message Headers to receive as Attributes (Regex)</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>VertxService</displayName>
+                                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                                    </allowableValues>
+                                    <description>The ControllerService that is used to obtain eventBus instance
+                                    </description>
+                                    <displayName>Vertx Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>
+                                        com.crossbusiness.nifi.controllers.VertxServiceInterface
+                                    </identifiesControllerService>
+                                    <name>Vertx Service</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>inbound address</key>
+                                <value>iot.in.hr</value>
+                            </entry>
+                            <entry>
+                                <key>Message Headers to receive as Attributes (Regex)</key>
+                                <value>sensor</value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Ingest IoT data over WebSocket</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.GetEventBus</type>
+                </processors>
+                <processors>
+                    <id>5f54c1ff-7355-492c-bccf-3bdffb760b9f</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>-91.99749933318765</x>
+                        <y>-124.57286993651974</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Listening Port</key>
+                                <value>
+                                    <description>The Port to listen on for incoming connections</description>
+                                    <displayName>Listening Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Listening Port</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Max Data to Receive per Second</key>
+                                <value>
+                                    <description>The maximum amount of data to receive per second; this allows the
+                                        bandwidth to be throttled to a specified data rate; if not specified, the data
+                                        rate is not throttled
+                                    </description>
+                                    <displayName>Max Data to Receive per Second</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Max Data to Receive per Second</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                                <value>
+                                    <description>The Controller Service to use in order to obtain an SSL Context
+                                    </description>
+                                    <displayName>SSL Context Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService
+                                    </identifiesControllerService>
+                                    <name>SSL Context Service</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Authorized DN Pattern</key>
+                                <value>
+                                    <defaultValue>.*</defaultValue>
+                                    <description>A Regular Expression to apply against the Distinguished Name of
+                                        incoming connections. If the Pattern does not match the DN, the connection will
+                                        be refused.
+                                    </description>
+                                    <displayName>Authorized DN Pattern</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Authorized DN Pattern</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Max Unconfirmed Flowfile Time</key>
+                                <value>
+                                    <defaultValue>60 secs</defaultValue>
+                                    <description>The maximum amount of time to wait for a FlowFile to be confirmed
+                                        before it is removed from the cache
+                                    </description>
+                                    <displayName>Max Unconfirmed Flowfile Time</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Max Unconfirmed Flowfile Time</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>HTTP Headers to receive as Attributes (Regex)</key>
+                                <value>
+                                    <description>Specifies the Regular Expression that determines the names of HTTP
+                                        Headers that should be passed along as FlowFile attributes
+                                    </description>
+                                    <displayName>HTTP Headers to receive as Attributes (Regex)</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>HTTP Headers to receive as Attributes (Regex)</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Listening Port</key>
+                                <value>5001</value>
+                            </entry>
+                            <entry>
+                                <key>Max Data to Receive per Second</key>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                            </entry>
+                            <entry>
+                                <key>Authorized DN Pattern</key>
+                                <value>.*</value>
+                            </entry>
+                            <entry>
+                                <key>Max Unconfirmed Flowfile Time</key>
+                                <value>60 secs</value>
+                            </entry>
+                            <entry>
+                                <key>HTTP Headers to receive as Attributes (Regex)</key>
+                                <value>sensor</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Ingest IoT data over HTTP</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.ListenHTTP</type>
+                </processors>
+                <processors>
+                    <id>48258dc2-b99d-43ef-8967-9cf99a92102c</id>
+                    <parentGroupId>672d068f-2fa9-4237-9b69-db5d756f80d0</parentGroupId>
+                    <position>
+                        <x>754.961606446675</x>
+                        <y>483.41910262310216</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>0</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>
+                                    <description>address where outbound message will be published</description>
+                                    <displayName>outbound address</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>outbound address</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                                <value>
+                                    <description>Specifies the Regular Expression that determines the names of FlowFile
+                                        attributes that should be passed along as Message Headers
+                                    </description>
+                                    <displayName>FlowFile attributes to receive as message headers (Regex)</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>FlowFile attributes to receive as message headers (Regex)</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>VertxService</displayName>
+                                        <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                                    </allowableValues>
+                                    <description>The ControllerService that is used to obtain eventBus instance
+                                    </description>
+                                    <displayName>Vertx Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>
+                                        com.crossbusiness.nifi.controllers.VertxServiceInterface
+                                    </identifiesControllerService>
+                                    <name>Vertx Service</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>outbound address</key>
+                                <value>iot.out.${id}.activity.inactive</value>
+                            </entry>
+                            <entry>
+                                <key>FlowFile attributes to receive as message headers (Regex)</key>
+                            </entry>
+                            <entry>
+                                <key>Vertx Service</key>
+                                <value>ebe0d28b-2eac-4242-9b33-b93e09fe5aa0</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>EVENT_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Send inactive event to EB</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>any flowFile that cannot be published to EventBus will be routed to failure
+                        </description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Relationship for successfully received FlowFiles</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.SendEventBus</type>
+                </processors>
+            </contents>
+            <disabledCount>0</disabledCount>
+            <inactiveRemotePortCount>0</inactiveRemotePortCount>
+            <inputPortCount>0</inputPortCount>
+            <invalidCount>0</invalidCount>
+            <name>IoT Demo</name>
+            <outputPortCount>0</outputPortCount>
+            <parent>
+                <id>640d51ac-6f4d-4a43-87fc-cd2c9510ca65</id>
+                <name>NiFi Flow</name>
+            </parent>
+            <runningCount>3</runningCount>
+            <stoppedCount>9</stoppedCount>
+        </processGroups>
+    </snippet>
+    <timestamp>10/18/2015 03:09:16 PDT</timestamp>
+</template>

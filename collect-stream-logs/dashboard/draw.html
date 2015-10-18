@@ -14,12 +14,12 @@
 </canvas>
 
 <!-- JavaScript includes. -->
-<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
-<script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/vertx/2.0.0/vertxbus.min.js'></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+<script src="//cdn.jsdelivr.net/sockjs/1.0.0/sockjs.min.js"></script>
+<script src="//cdn.rawgit.com/vert-x3/vertx-bus-bower/master/vertx-eventbus.js"></script>
 
 <script>
-  var eb = new vertx.EventBus('http://localhost:5555/eventbus');
+
   $(function () {
     // This demo depends on the canvas element
     if (!('getContext' in document.createElement('canvas'))) {
@@ -35,11 +35,13 @@
     var drawing = false;
     var clients = {};
     // create a event bus bridge to the server that served this file
-    var eb = new vertx.EventBus('http://localhost:5555/eventbus');
+    //var eb = new EventBus('http://apsrt1451:5555/eventbus');
+    var eb = new EventBus('http://localhost:5555/eventbus');
     eb.onopen = function () {
       // listen to draw events
-      eb.registerHandler('draw', function (data) {
+      eb.registerHandler('draw', function (err, res) {
         // Is the user drawing?
+        var data = res.body;
         if (data.drawing && clients[data.id]) {
           // Draw a line on the canvas. clients[data.id] holds
           // the previous position of this user's mouse pointer
