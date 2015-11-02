@@ -40,8 +40,10 @@ curl -L -0 https://github.com/zendesk/maxwell/releases/download/v0.13.1/maxwell-
 `cd maxwell`
 
 1. Run with stdout producer 
+
    `bin/maxwell --user='maxwell' --password='XXXXXX' --host='127.0.0.1' --producer=stdout`
 2. Run with kafka producer
+
    `bin/maxwell`
     
 ### Test
