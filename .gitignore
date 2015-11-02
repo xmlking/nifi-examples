@@ -3,6 +3,7 @@
 ## App ##
 logs
 *.log
+NOTES.md
 
 ### Gradle ###
 .gradle

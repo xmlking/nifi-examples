@@ -9,11 +9,12 @@ iot-activity-tracker
     1. Open EventBus-WebSocket bridge on port 5555.
     2. Let external (JavaScript), and internal(ListenHTTP) clients to publish IoT events including headers(`sensor`) to dynamic address `iot.in.${sensor}`.
     3. Extract sensor data from JSON payload into flowFile attributes for future use.
-3. Send all IoT data to MarkLogic and HDFS(W.I.P) for historical data search. 
-4. Route Heart rate IoT data to `warning` and `danger` routes
-    1. `danger` route will send email alert to Doctor.
+3. Store all data to HDFS(W.I.P) and summary data to NoSQL(MarkLogic) for historical data search.
+4. Stream real-time targeted data to user's app and physicians dashboard. 
+5. Route Heart rate IoT data to `warning` and `danger` routes
+    1. `danger` route will send email alert to Physicians.
     2. `warning` route will send dashboard alert (Call Center).
-4. Inactivity Reporting
+6. Inactivity Reporting
     1. Send `Inactivity Message` when there is no IoT data in the flow for 5 min.
     2. Send `Activity Restored Message` when new IoT data received after inactivity event. 
     3. Client UI can subscript to `Inactivity` events and show graphical status. 
