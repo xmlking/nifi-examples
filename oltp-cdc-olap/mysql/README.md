@@ -24,8 +24,8 @@ mysqladmin -u root -p shutdown  # stop
 mysql_secure_installation
 ```
 
-### Grant permissions for maxwell (one time)
-```bash
+#### Grant permissions for maxwell (one time)
+```sql
 mysql -u root -p 
 mysql> GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'XXXXXX';
 mysql> GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE on *.* to 'maxwell'@'%';
@@ -35,7 +35,7 @@ mysql> GRANT ALL on maxwell.* to 'maxwell'@'localhost';
 ```
 
 #### MySQL Command Line Tool
-```bash
+```sql
 mysql -u root -p 
 SHOW DATABASES; # List all existing databases.
 SELECT DISTINCT User FROM mysql.user;  #List all MySQL / MariaDB users.
