@@ -71,5 +71,5 @@ Query OK, 1 row affected (0.04 sec)
 ![cdc dataflow](./cdc-flow.png)
 
 ### Reference 
-1. [maxwells](http://maxwells-daemon.io/quickstart/)
+1. [Maxwell's Daemon](http://maxwells-daemon.io/quickstart/)
 2. [LinkedIn: Creating A Low Latency Change Data Capture System With Databus](http://highscalability.com/blog/2012/3/19/linkedin-creating-a-low-latency-change-data-capture-system-w.html)
