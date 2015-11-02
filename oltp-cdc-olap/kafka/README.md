@@ -1,4 +1,4 @@
-### Install Kafka
+### Install Kafka (one time)
 ```bash
 brew install kafka
 ```
@@ -22,9 +22,9 @@ kafka-topics.sh --zookeeper localhost:2181 --create --topic maxwell --partitions
 kafka-topics.sh --list --zookeeper localhost:2181
 ```
 
-#### display messages on a topic
+#### Display messages on a topic
 ```bash  
 kafka-console-consumer.sh --zookeeper localhost:2181 --topic maxwell --from-beginning
 ```
     
-NOTE: stop Kafka first and then Zookeeper
+*NOTE: stop Kafka first and then Zookeeper*
