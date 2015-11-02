@@ -1,12 +1,12 @@
 Database setup and configuration for CDC dataflow demo
 
-### Install MySQL
+### Install MySQL (one time)
 ```bash
 brew install mysql
 mysql -V  # Verify the MySQL installation
 ```
 
-### Initializing Database
+### Initializing Database (one time)
 ```bash
 unset TMPDIR
 # mysql_install_db --defaults-file=./mysql/my.cnf --verbose --user=`whoami`
@@ -19,12 +19,12 @@ mysqld --defaults-file=./mysql/my.cnf # start
 mysqladmin -u root -p shutdown  # stop
 ```
 
-#### Setup Security (for Production)
+#### Setup Security (for Production) (one time)
 ```bash
 mysql_secure_installation
 ```
 
-### Grant permissions for maxwell
+### Grant permissions for maxwell (one time)
 ```bash
 mysql -u root -p 
 mysql> GRANT ALL on maxwell.* to 'maxwell'@'%' identified by 'XXXXXX';

@@ -27,7 +27,7 @@ A low latency, multi-tenant **Change Data Capture(CDC)** pipeline to continuousl
 Install source MySQL database and configure it with row based replication as per [instructions](./mysql/README.md). 
 
 #### Install and Run Kafka
-Follow instructions at [Kafka](./kafka/README.md)
+Follow the [instructions](./kafka/README.md)
 
 #### Install Maxwell 
 ```bash
@@ -36,16 +36,18 @@ curl -L -0 https://github.com/zendesk/maxwell/releases/download/v0.13.1/maxwell-
 ```
 
 ### Run
+
 `cd maxwell`
+
 1. Run with stdout producer
-    > bin/maxwell --user='maxwell' --password='XXXXXX' --host='127.0.0.1' --producer=stdout
+> bin/maxwell --user='maxwell' --password='XXXXXX' --host='127.0.0.1' --producer=stdout
 2. Run with kafka producer
-    > bin/maxwell
+> bin/maxwell
     
 ### Test
 If all goes well you'll see maxwell replaying your inserts:
 
-```bash
+```sql
 mysql> CREATE TABLE test.guests (
          id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
          firstname VARCHAR(30) NOT NULL,
