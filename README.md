@@ -23,7 +23,7 @@ This [flow](./iot-activity-tracker/) shows how to bring IoT data into Enterprise
 5. Inactivity Reporting
 
 
-#### OLTP-to-OLAP
+#### oltp-to-olap
 
 A low latency *Change Data Capture* [flow](./oltp-cdc-olap/) to continuously replicate data from OLTP(MySQL) to OLAP(NoSQL) systems with no impact to the source. 
 

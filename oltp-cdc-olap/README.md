@@ -1,4 +1,4 @@
-OLTP-CDC-OLAP
+oltp-cdc-olap
 =============
 
 A low latency, multi-tenant **Change Data Capture(CDC)** pipeline to continuously replicate data from OLTP(MySQL) to OLAP(NoSQL) systems with no impact to the source. 
