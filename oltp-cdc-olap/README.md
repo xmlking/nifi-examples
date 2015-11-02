@@ -37,7 +37,7 @@ curl -L -0 https://github.com/zendesk/maxwell/releases/download/v0.13.1/maxwell-
 
 ### Run
 
-`cd maxwell`
+   `cd maxwell`
 
 1. Run with stdout producer 
 
