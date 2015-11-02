@@ -90,7 +90,7 @@ the creation of a Twitter application, and a running instance of Solr 5.1 or lat
 
 ### Install NiFi
 1. Manual: Download [Apache NiFi](https://nifi.apache.org/download.html) binaries and unpack to a folder. 
-2. On Mac: brew install nifi
+2. On Mac: `brew install nifi`
 
 ### Run NiFi
 ```bash
