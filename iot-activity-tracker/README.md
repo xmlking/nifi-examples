@@ -30,7 +30,7 @@ curl ....
 ```
 
 ### Demo
-![streaming logs](./iot-demo.gif)
+![streaming logs](./iot-demo.png)
 
 ### Flow
 ![logs dataflow](./iot-flow.png)
