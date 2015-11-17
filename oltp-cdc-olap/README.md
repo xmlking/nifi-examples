@@ -67,9 +67,36 @@ Query OK, 1 row affected (0.04 sec)
 ### Architecture
 ![cdc architecture](./cdc-architecture.jpg)
 
-### Flow
+### Dataflow
+
+This [flow](./cdc-flow.xml) depends on **nifi-scripting** module, download [nar](https://github.com/xmlking/nifi-scripting/releases) and copy to `$NIFI_HOME/lib`
+
+ExecuteJavaScript's JSON transformation logic:
+
+```js
+// logical change record (LCR)
+var lcr = util.flowFileToString(flowFile, session);
+lcr = JSON.parse(lcr);
+
+var attMap = new java.util.HashMap();
+attMap.put('commit', lcr.commit.toString());
+attMap.put('database', lcr.database);
+attMap.put('table', lcr.table);
+attMap.put('ts', lcr.ts.toString());
+attMap.put('id', lcr.data.id.toString());
+attMap.put('type', lcr.type);
+attMap.put('xid', lcr.xid.toString());
+
+session.remove(flowFile);
+flowFile = util.stringToFlowFile(JSON.stringify(lcr.data) , session, flowFile);
+flowFile = session.putAllAttributes(flowFile, attMap);
+```
+
 ![cdc dataflow](./cdc-flow.png)
 
 ### Reference 
 1. [Maxwell's Daemon](http://maxwells-daemon.io/quickstart/)
 2. [LinkedIn: Creating A Low Latency Change Data Capture System With Databus](http://highscalability.com/blog/2012/3/19/linkedin-creating-a-low-latency-change-data-capture-system-w.html)
+3. [Introducing Maxwell, a mysql-to-kafka binlog processor](https://developer.zendesk.com/blog/introducing-maxwell-a-mysql-to-kafka-binlog-processor)
+4. [Martin Kleppman's blog: Using logs to build a solid data infrastructure](https://martin.kleppmann.com/2015/05/27/logs-for-data-infrastructure.html)
+
