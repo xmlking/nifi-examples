@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template>
-    <description>MaxwellCDC-Kafka-MarkLogic Flow</description>
-    <name>MaxwellCDC-Kafka-MarkLogic Flow</name>
+    <description></description>
+    <name>cdc</name>
     <snippet>
         <processGroups>
-            <id>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</id>
-            <parentGroupId>96de89d5-1d1c-4f85-ac48-a0e226cc990b</parentGroupId>
+            <id>6e1c824e-4cb5-444b-a18c-89b1da416c8d</id>
+            <parentGroupId>53a6d96b-04a2-4473-82d7-909305578e2e</parentGroupId>
             <position>
-                <x>796.0</x>
-                <y>279.0</y>
+                <x>1067.0</x>
+                <y>342.0</y>
             </position>
             <activeRemotePortCount>0</activeRemotePortCount>
             <comments></comments>
             <contents>
                 <connections>
-                    <id>63c97edd-d63d-4fc5-b579-9c86872431a1</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
+                    <id>8672039b-1766-4550-afa0-20ca47275fca</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
                     <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>0</backPressureObjectThreshold>
                     <destination>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>67fe1771-4039-4248-bde0-507e3fa5c11c</id>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>17acc796-d7f2-4ec0-b105-41d093b2656f</id>
                         <type>PROCESSOR</type>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
@@ -28,57 +28,15 @@
                     <name></name>
                     <selectedRelationships>delete</selectedRelationships>
                     <source>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>340b55aa-c72f-43b2-ad2b-f503bdf477b2</id>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>37acb467-590b-4388-90be-5273b24e2905</id>
                         <type>PROCESSOR</type>
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
-                    <id>9cd02903-afd7-4ea2-ab0f-2d60dfe61492</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
-                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
-                    <destination>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>340b55aa-c72f-43b2-ad2b-f503bdf477b2</id>
-                        <type>PROCESSOR</type>
-                    </destination>
-                    <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>1</labelIndex>
-                    <name></name>
-                    <selectedRelationships>success</selectedRelationships>
-                    <source>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>40f8dff1-da44-4ddd-85dd-2f0c4f6b7428</id>
-                        <type>PROCESSOR</type>
-                    </source>
-                    <zIndex>0</zIndex>
-                </connections>
-                <connections>
-                    <id>0c67be62-1c2f-4d7e-b412-956c407e34d2</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
-                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
-                    <destination>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>40f8dff1-da44-4ddd-85dd-2f0c4f6b7428</id>
-                        <type>PROCESSOR</type>
-                    </destination>
-                    <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>0</labelIndex>
-                    <name></name>
-                    <selectedRelationships>success</selectedRelationships>
-                    <source>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>fe47d2e3-99ec-4057-ad42-b709347eb369</id>
-                        <type>PROCESSOR</type>
-                    </source>
-                    <zIndex>0</zIndex>
-                </connections>
-                <connections>
-                    <id>115f2aa7-1278-4f48-98af-df0c3aa8c40d</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
+                    <id>138b90bb-8ed6-4f12-bd6e-e63c5003f2de</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
                     <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>0</backPressureObjectThreshold>
                     <bends>
@@ -86,56 +44,30 @@
                         <y>472.0835876464844</y>
                     </bends>
                     <destination>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>4ebd3631-87b8-42f3-ba40-8a23750a8b02</id>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>712b67de-08f2-4f65-b81f-81150afe8531</id>
                         <type>PROCESSOR</type>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>0</labelIndex>
+                    <labelIndex>1</labelIndex>
                     <name></name>
                     <selectedRelationships>insert</selectedRelationships>
                     <selectedRelationships>update</selectedRelationships>
                     <source>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>340b55aa-c72f-43b2-ad2b-f503bdf477b2</id>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>37acb467-590b-4388-90be-5273b24e2905</id>
                         <type>PROCESSOR</type>
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
-                    <id>d25a0295-057f-4896-bc46-62d3c18ad4e9</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
-                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
-                    <bends>
-                        <x>780.317626953125</x>
-                        <y>105.64883422851562</y>
-                    </bends>
-                    <destination>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>aab64712-a14e-4957-b771-f3a5066e8673</id>
-                        <type>PROCESSOR</type>
-                    </destination>
-                    <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>0</labelIndex>
-                    <name></name>
-                    <selectedRelationships>failure</selectedRelationships>
-                    <selectedRelationships>success</selectedRelationships>
-                    <source>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>40f8dff1-da44-4ddd-85dd-2f0c4f6b7428</id>
-                        <type>PROCESSOR</type>
-                    </source>
-                    <zIndex>0</zIndex>
-                </connections>
-                <connections>
-                    <id>26c9f56e-0daf-4351-9829-6300f71f55dd</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
+                    <id>45bfb8e7-b79e-475a-803c-16c0a89a670a</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
                     <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>0</backPressureObjectThreshold>
                     <destination>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>4bbe08a0-7685-47c2-b9aa-b371d7e6c7c9</id>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>afc16606-eb3f-4638-b7f5-489b0fb54024</id>
                         <type>PROCESSOR</type>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
@@ -143,824 +75,83 @@
                     <name></name>
                     <selectedRelationships>success</selectedRelationships>
                     <source>
-                        <groupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</groupId>
-                        <id>fe47d2e3-99ec-4057-ad42-b709347eb369</id>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>20cae368-1767-4b94-80ea-5ff5d0805917</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>2d3d98ab-d4c9-46b9-af31-f79fd336d6ad</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>37acb467-590b-4388-90be-5273b24e2905</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>afc16606-eb3f-4638-b7f5-489b0fb54024</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>51b3e0c2-8418-4bf3-80b6-72aded22c4e6</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <bends>
+                        <x>780.317626953125</x>
+                        <y>105.64883422851562</y>
+                    </bends>
+                    <destination>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>cd2abc76-d01b-47f9-9813-151671e1edcd</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>failure</selectedRelationships>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>afc16606-eb3f-4638-b7f5-489b0fb54024</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>04760108-71ff-41e8-908d-e043e0da0037</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>0</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>9a83bf1b-5c53-4262-abf5-3a6141cd4dfb</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</groupId>
+                        <id>20cae368-1767-4b94-80ea-5ff5d0805917</id>
                         <type>PROCESSOR</type>
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
                 <processors>
-                    <id>40f8dff1-da44-4ddd-85dd-2f0c4f6b7428</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <position>
-                        <x>625.4080200195312</x>
-                        <y>215.8929901123047</y>
-                    </position>
-                    <config>
-                        <bulletinLevel>WARN</bulletinLevel>
-                        <comments></comments>
-                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                        <defaultConcurrentTasks>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                            <entry>
-                                <key>EVENT_DRIVEN</key>
-                                <value>0</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                        </defaultConcurrentTasks>
-                        <defaultSchedulingPeriod>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>0 sec</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>* * * * * ?</value>
-                            </entry>
-                        </defaultSchedulingPeriod>
-                        <descriptors>
-                            <entry>
-                                <key>JavaScript</key>
-                                <value>
-                                    <description>JavaScript to execute</description>
-                                    <displayName>JavaScript</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>JavaScript</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Arguments</key>
-                                <value>
-                                    <defaultValue></defaultValue>
-                                    <description>Arguments to pass to JavaScript</description>
-                                    <displayName>Arguments</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Arguments</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
-                        </descriptors>
-                        <lossTolerant>false</lossTolerant>
-                        <penaltyDuration>30 sec</penaltyDuration>
-                        <properties>
-                            <entry>
-                                <key>JavaScript</key>
-                                <value>// logical change record (LCR)
-                                    var lcr = util.flowFileToString(flowFile, session);
-                                    lcr = JSON.parse(lcr);
-
-                                    var attMap = new java.util.HashMap();
-                                    attMap.put('commit', lcr.commit.toString());
-                                    attMap.put('database', lcr.database);
-                                    attMap.put('table', lcr.table);
-                                    attMap.put('ts', lcr.ts.toString());
-                                    attMap.put('id', lcr.data.id.toString());
-                                    attMap.put('type', lcr.type);
-                                    attMap.put('xid', lcr.xid.toString());
-
-                                    session.remove(flowFile);
-                                    flowFile = util.stringToFlowFile(JSON.stringify(lcr.data) , session, flowFile);
-                                    flowFile = session.putAllAttributes(flowFile, attMap);
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Arguments</key>
-                                <value></value>
-                            </entry>
-                        </properties>
-                        <runDurationMillis>0</runDurationMillis>
-                        <schedulingPeriod>0 sec</schedulingPeriod>
-                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                        <yieldDuration>1 sec</yieldDuration>
-                    </config>
-                    <name>Process in JavaScript</name>
-                    <relationships>
-                        <autoTerminate>false</autoTerminate>
-                        <description>FlowFiles that were failed to process</description>
-                        <name>failure</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>false</autoTerminate>
-                        <description>FlowFiles that were successfully processed</description>
-                        <name>success</name>
-                    </relationships>
-                    <state>RUNNING</state>
-                    <style/>
-                    <supportsEventDriven>false</supportsEventDriven>
-                    <supportsParallelProcessing>true</supportsParallelProcessing>
-                    <type>com.crossbusiness.nifi.processors.ExecuteJavaScript</type>
-                </processors>
-                <processors>
-                    <id>340b55aa-c72f-43b2-ad2b-f503bdf477b2</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <position>
-                        <x>626.2073364257812</x>
-                        <y>422.89300537109375</y>
-                    </position>
-                    <config>
-                        <bulletinLevel>WARN</bulletinLevel>
-                        <comments></comments>
-                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                        <defaultConcurrentTasks>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                            <entry>
-                                <key>EVENT_DRIVEN</key>
-                                <value>0</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                        </defaultConcurrentTasks>
-                        <defaultSchedulingPeriod>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>0 sec</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>* * * * * ?</value>
-                            </entry>
-                        </defaultSchedulingPeriod>
-                        <descriptors>
-                            <entry>
-                                <key>Routing Strategy</key>
-                                <value>
-                                    <allowableValues>
-                                        <description>A copy of the FlowFile will be routed to each relationship whose
-                                            corresponding expression evaluates to 'true'
-                                        </description>
-                                        <displayName>Route to Property name</displayName>
-                                        <value>Route to Property name</value>
-                                    </allowableValues>
-                                    <allowableValues>
-                                        <description>Requires that all user-defined expressions evaluate to 'true' for
-                                            the FlowFile to be considered a match
-                                        </description>
-                                        <displayName>Route to 'matched' if all match</displayName>
-                                        <value>Route to 'match' if all match</value>
-                                    </allowableValues>
-                                    <allowableValues>
-                                        <description>Requires that at least one user-defined expression evaluate to
-                                            'true' for hte FlowFile to be considered a match
-                                        </description>
-                                        <displayName>Route to 'matched' if any matches</displayName>
-                                        <value>Route to 'match' if any matches</value>
-                                    </allowableValues>
-                                    <defaultValue>Route to Property name</defaultValue>
-                                    <description>Specifies how to determine which relationship to use when evaluating
-                                        the Expression Language
-                                    </description>
-                                    <displayName>Routing Strategy</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Routing Strategy</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>delete</key>
-                                <value>
-                                    <description></description>
-                                    <displayName>delete</displayName>
-                                    <dynamic>true</dynamic>
-                                    <name>delete</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>insert</key>
-                                <value>
-                                    <description></description>
-                                    <displayName>insert</displayName>
-                                    <dynamic>true</dynamic>
-                                    <name>insert</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>update</key>
-                                <value>
-                                    <description></description>
-                                    <displayName>update</displayName>
-                                    <dynamic>true</dynamic>
-                                    <name>update</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
-                        </descriptors>
-                        <lossTolerant>false</lossTolerant>
-                        <penaltyDuration>30 sec</penaltyDuration>
-                        <properties>
-                            <entry>
-                                <key>Routing Strategy</key>
-                                <value>Route to Property name</value>
-                            </entry>
-                            <entry>
-                                <key>delete</key>
-                                <value>${type:equals('delete')}</value>
-                            </entry>
-                            <entry>
-                                <key>insert</key>
-                                <value>${type:equals('insert')}</value>
-                            </entry>
-                            <entry>
-                                <key>update</key>
-                                <value>${type:equals('update')}</value>
-                            </entry>
-                        </properties>
-                        <runDurationMillis>0</runDurationMillis>
-                        <schedulingPeriod>0 sec</schedulingPeriod>
-                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                        <yieldDuration>1 sec</yieldDuration>
-                    </config>
-                    <name>Route: insert : update : delete</name>
-                    <relationships>
-                        <autoTerminate>false</autoTerminate>
-                        <description></description>
-                        <name>delete</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>false</autoTerminate>
-                        <description></description>
-                        <name>insert</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>true</autoTerminate>
-                        <description>FlowFiles that do not match any user-define expression will be routed here
-                        </description>
-                        <name>unmatched</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>false</autoTerminate>
-                        <description></description>
-                        <name>update</name>
-                    </relationships>
-                    <state>RUNNING</state>
-                    <style/>
-                    <supportsEventDriven>true</supportsEventDriven>
-                    <supportsParallelProcessing>true</supportsParallelProcessing>
-                    <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
-                </processors>
-                <processors>
-                    <id>4ebd3631-87b8-42f3-ba40-8a23750a8b02</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <position>
-                        <x>971.64892578125</x>
-                        <y>602.3913269042969</y>
-                    </position>
-                    <config>
-                        <bulletinLevel>WARN</bulletinLevel>
-                        <comments></comments>
-                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                        <defaultConcurrentTasks>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                            <entry>
-                                <key>EVENT_DRIVEN</key>
-                                <value>0</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                        </defaultConcurrentTasks>
-                        <defaultSchedulingPeriod>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>0 sec</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>* * * * * ?</value>
-                            </entry>
-                        </defaultSchedulingPeriod>
-                        <descriptors>
-                            <entry>
-                                <key>HTTP Method</key>
-                                <value>
-                                    <defaultValue>GET</defaultValue>
-                                    <description>HTTP request method (GET, POST, PUT, DELETE, HEAD, OPTIONS).
-                                    </description>
-                                    <displayName>HTTP Method</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>HTTP Method</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Remote URL</key>
-                                <value>
-                                    <description>Remote URL which will be connected to, including scheme, host, port,
-                                        path.
-                                    </description>
-                                    <displayName>Remote URL</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Remote URL</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>SSL Context Service</key>
-                                <value>
-                                    <description>The SSL Context Service used to provide client certificate information
-                                        for TLS/SSL (https) connections.
-                                    </description>
-                                    <displayName>SSL Context Service</displayName>
-                                    <dynamic>false</dynamic>
-                                    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService
-                                    </identifiesControllerService>
-                                    <name>SSL Context Service</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Connection Timeout</key>
-                                <value>
-                                    <defaultValue>5 secs</defaultValue>
-                                    <description>Max wait time for connection to remote service.</description>
-                                    <displayName>Connection Timeout</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Connection Timeout</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Read Timeout</key>
-                                <value>
-                                    <defaultValue>15 secs</defaultValue>
-                                    <description>Max wait time for response from remote service.</description>
-                                    <displayName>Read Timeout</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Read Timeout</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Include Date Header</key>
-                                <value>
-                                    <allowableValues>
-                                        <displayName>True</displayName>
-                                        <value>True</value>
-                                    </allowableValues>
-                                    <allowableValues>
-                                        <displayName>False</displayName>
-                                        <value>False</value>
-                                    </allowableValues>
-                                    <defaultValue>True</defaultValue>
-                                    <description>Include an RFC-2616 Date header in the request.</description>
-                                    <displayName>Include Date Header</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Include Date Header</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Follow Redirects</key>
-                                <value>
-                                    <allowableValues>
-                                        <displayName>True</displayName>
-                                        <value>True</value>
-                                    </allowableValues>
-                                    <allowableValues>
-                                        <displayName>False</displayName>
-                                        <value>False</value>
-                                    </allowableValues>
-                                    <defaultValue>True</defaultValue>
-                                    <description>Follow HTTP redirects issued by remote server.</description>
-                                    <displayName>Follow Redirects</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Follow Redirects</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Attributes to Send</key>
-                                <value>
-                                    <description>Regular expression that defines which attributes to send as HTTP
-                                        headers in the request. If not defined, no attributes are sent as headers.
-                                    </description>
-                                    <displayName>Attributes to Send</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Attributes to Send</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Basic Authentication Username</key>
-                                <value>
-                                    <description>The username to be used by the client to authenticate against the
-                                        Remote URL. Cannot include control characters (0-31), ':', or DEL (127).
-                                    </description>
-                                    <displayName>Basic Authentication Username</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Basic Authentication Username</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Basic Authentication Password</key>
-                                <value>
-                                    <description>The password to be used by the client to authenticate against the
-                                        Remote URL.
-                                    </description>
-                                    <displayName>Basic Authentication Password</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Basic Authentication Password</name>
-                                    <required>false</required>
-                                    <sensitive>true</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Proxy Host</key>
-                                <value>
-                                    <description>The fully qualified hostname or IP address of the proxy server
-                                    </description>
-                                    <displayName>Proxy Host</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Proxy Host</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Proxy Port</key>
-                                <value>
-                                    <description>The port of the proxy server</description>
-                                    <displayName>Proxy Port</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Proxy Port</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                        </descriptors>
-                        <lossTolerant>false</lossTolerant>
-                        <penaltyDuration>30 sec</penaltyDuration>
-                        <properties>
-                            <entry>
-                                <key>HTTP Method</key>
-                                <value>PUT</value>
-                            </entry>
-                            <entry>
-                                <key>Remote URL</key>
-                                <value>http://dbsrt0573:9020/v1/documents?uri=/${database}/${table}/${id}.json</value>
-                            </entry>
-                            <entry>
-                                <key>SSL Context Service</key>
-                            </entry>
-                            <entry>
-                                <key>Connection Timeout</key>
-                                <value>5 secs</value>
-                            </entry>
-                            <entry>
-                                <key>Read Timeout</key>
-                                <value>15 secs</value>
-                            </entry>
-                            <entry>
-                                <key>Include Date Header</key>
-                                <value>True</value>
-                            </entry>
-                            <entry>
-                                <key>Follow Redirects</key>
-                                <value>True</value>
-                            </entry>
-                            <entry>
-                                <key>Attributes to Send</key>
-                            </entry>
-                            <entry>
-                                <key>Basic Authentication Username</key>
-                                <value>soumyadip</value>
-                            </entry>
-                            <entry>
-                                <key>Basic Authentication Password</key>
-                            </entry>
-                            <entry>
-                                <key>Proxy Host</key>
-                            </entry>
-                            <entry>
-                                <key>Proxy Port</key>
-                            </entry>
-                        </properties>
-                        <runDurationMillis>0</runDurationMillis>
-                        <schedulingPeriod>0 sec</schedulingPeriod>
-                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                        <yieldDuration>1 sec</yieldDuration>
-                    </config>
-                    <name>MarkLogic : ingest</name>
-                    <relationships>
-                        <autoTerminate>true</autoTerminate>
-                        <description>FlowFile will be routed on any type of connection failure, timeout or general
-                            exception.
-                        </description>
-                        <name>Failure</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>true</autoTerminate>
-                        <description>FlowFile will be routed on any status code that should NOT be retried (1xx, 3xx,
-                            4xx status codes).
-                        </description>
-                        <name>No Retry</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>true</autoTerminate>
-                        <description>Original FlowFile will be routed upon success (2xx status codes).</description>
-                        <name>Original</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>true</autoTerminate>
-                        <description>Response FlowFile will be routed upon success (2xx status codes).</description>
-                        <name>Response</name>
-                    </relationships>
-                    <relationships>
-                        <autoTerminate>true</autoTerminate>
-                        <description>FlowFile will be routed on any status code that can be retried (5xx status
-                            codes).
-                        </description>
-                        <name>Retry</name>
-                    </relationships>
-                    <state>RUNNING</state>
-                    <style/>
-                    <supportsEventDriven>false</supportsEventDriven>
-                    <supportsParallelProcessing>true</supportsParallelProcessing>
-                    <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
-                </processors>
-                <processors>
-                    <id>fe47d2e3-99ec-4057-ad42-b709347eb369</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
-                    <position>
-                        <x>242.565185546875</x>
-                        <y>54.22074890136719</y>
-                    </position>
-                    <config>
-                        <bulletinLevel>WARN</bulletinLevel>
-                        <comments></comments>
-                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                        <defaultConcurrentTasks>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                            <entry>
-                                <key>EVENT_DRIVEN</key>
-                                <value>0</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>1</value>
-                            </entry>
-                        </defaultConcurrentTasks>
-                        <defaultSchedulingPeriod>
-                            <entry>
-                                <key>TIMER_DRIVEN</key>
-                                <value>0 sec</value>
-                            </entry>
-                            <entry>
-                                <key>CRON_DRIVEN</key>
-                                <value>* * * * * ?</value>
-                            </entry>
-                        </defaultSchedulingPeriod>
-                        <descriptors>
-                            <entry>
-                                <key>ZooKeeper Connection String</key>
-                                <value>
-                                    <description>The Connection String to use in order to connect to ZooKeeper. This is
-                                        often a comma-separated list of &lt;host&gt;:&lt;port&gt; combinations. For
-                                        example, host1:2181,host2:2181,host3:2188
-                                    </description>
-                                    <displayName>ZooKeeper Connection String</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>ZooKeeper Connection String</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Topic Name</key>
-                                <value>
-                                    <description>The Kafka Topic to pull messages from</description>
-                                    <displayName>Topic Name</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Topic Name</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Zookeeper Commit Frequency</key>
-                                <value>
-                                    <defaultValue>60 secs</defaultValue>
-                                    <description>Specifies how often to communicate with ZooKeeper to indicate which
-                                        messages have been pulled. A longer time period will result in better overall
-                                        performance but can result in more data duplication if a NiFi node is lost
-                                    </description>
-                                    <displayName>Zookeeper Commit Frequency</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Zookeeper Commit Frequency</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Batch Size</key>
-                                <value>
-                                    <defaultValue>1</defaultValue>
-                                    <description>Specifies the maximum number of messages to combine into a single
-                                        FlowFile. These messages will be concatenated together with the &lt;Message
-                                        Demarcator&gt; string placed between the content of each message. If the
-                                        messages from Kafka should not be concatenated together, leave this value at 1.
-                                    </description>
-                                    <displayName>Batch Size</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Batch Size</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Message Demarcator</key>
-                                <value>
-                                    <defaultValue>\n</defaultValue>
-                                    <description>Specifies the characters to use in order to demarcate multiple messages
-                                        from Kafka. If the &lt;Batch Size&gt; property is set to 1, this value is
-                                        ignored. Otherwise, for each two subsequent messages in the batch, this value
-                                        will be placed in between them.
-                                    </description>
-                                    <displayName>Message Demarcator</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Message Demarcator</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Client Name</key>
-                                <value>
-                                    <defaultValue>NiFi-fe47d2e3-99ec-4057-ad42-b709347eb369</defaultValue>
-                                    <description>Client Name to use when communicating with Kafka</description>
-                                    <displayName>Client Name</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Client Name</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Group ID</key>
-                                <value>
-                                    <defaultValue>fe47d2e3-99ec-4057-ad42-b709347eb369</defaultValue>
-                                    <description>A Group ID is used to identify consumers that are within the same
-                                        consumer group
-                                    </description>
-                                    <displayName>Group ID</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Group ID</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Kafka Communications Timeout</key>
-                                <value>
-                                    <defaultValue>30 secs</defaultValue>
-                                    <description>The amount of time to wait for a response from Kafka before determining
-                                        that there is a communications error
-                                    </description>
-                                    <displayName>Kafka Communications Timeout</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Kafka Communications Timeout</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>ZooKeeper Communications Timeout</key>
-                                <value>
-                                    <defaultValue>30 secs</defaultValue>
-                                    <description>The amount of time to wait for a response from ZooKeeper before
-                                        determining that there is a communications error
-                                    </description>
-                                    <displayName>ZooKeeper Communications Timeout</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>ZooKeeper Communications Timeout</name>
-                                    <required>true</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                        </descriptors>
-                        <lossTolerant>false</lossTolerant>
-                        <penaltyDuration>30 sec</penaltyDuration>
-                        <properties>
-                            <entry>
-                                <key>ZooKeeper Connection String</key>
-                                <value>localhost:2181</value>
-                            </entry>
-                            <entry>
-                                <key>Topic Name</key>
-                                <value>maxwell</value>
-                            </entry>
-                            <entry>
-                                <key>Zookeeper Commit Frequency</key>
-                                <value>60 secs</value>
-                            </entry>
-                            <entry>
-                                <key>Batch Size</key>
-                                <value>1</value>
-                            </entry>
-                            <entry>
-                                <key>Message Demarcator</key>
-                                <value>\n</value>
-                            </entry>
-                            <entry>
-                                <key>Client Name</key>
-                                <value>NiFi-fe47d2e3-99ec-4057-ad42-b709347eb369</value>
-                            </entry>
-                            <entry>
-                                <key>Group ID</key>
-                                <value>fe47d2e3-99ec-4057-ad42-b709347eb369</value>
-                            </entry>
-                            <entry>
-                                <key>Kafka Communications Timeout</key>
-                                <value>30 secs</value>
-                            </entry>
-                            <entry>
-                                <key>ZooKeeper Communications Timeout</key>
-                                <value>30 secs</value>
-                            </entry>
-                        </properties>
-                        <runDurationMillis>0</runDurationMillis>
-                        <schedulingPeriod>0 sec</schedulingPeriod>
-                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                        <yieldDuration>1 sec</yieldDuration>
-                    </config>
-                    <name>GetKafka</name>
-                    <relationships>
-                        <autoTerminate>false</autoTerminate>
-                        <description>All FlowFiles that are created are routed to this relationship</description>
-                        <name>success</name>
-                    </relationships>
-                    <state>RUNNING</state>
-                    <style/>
-                    <supportsEventDriven>false</supportsEventDriven>
-                    <supportsParallelProcessing>true</supportsParallelProcessing>
-                    <type>org.apache.nifi.processors.kafka.GetKafka</type>
-                </processors>
-                <processors>
-                    <id>67fe1771-4039-4248-bde0-507e3fa5c11c</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
+                    <id>17acc796-d7f2-4ec0-b105-41d093b2656f</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
                     <position>
                         <x>621.2809448242188</x>
                         <y>598.8929443359375</y>
@@ -1144,7 +335,7 @@
                                     <dynamic>false</dynamic>
                                     <name>Basic Authentication Password</name>
                                     <required>false</required>
-                                    <sensitive>true</sensitive>
+                                    <sensitive>false</sensitive>
                                     <supportsEl>false</supportsEl>
                                 </value>
                             </entry>
@@ -1183,7 +374,7 @@
                             </entry>
                             <entry>
                                 <key>Remote URL</key>
-                                <value>http://dbsrt0573:9020/v1/documents?uri=/${database}/${table}/${id}.json</value>
+                                <value>http://localhost:8000/v1/documents?uri=/${database}/${table}/${id}.json</value>
                             </entry>
                             <entry>
                                 <key>SSL Context Service</key>
@@ -1258,15 +449,15 @@
                         </description>
                         <name>Retry</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <supportsEventDriven>false</supportsEventDriven>
                     <supportsParallelProcessing>true</supportsParallelProcessing>
                     <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
                 </processors>
                 <processors>
-                    <id>aab64712-a14e-4957-b771-f3a5066e8673</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
+                    <id>cd2abc76-d01b-47f9-9813-151671e1edcd</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
                     <position>
                         <x>985.7191162109375</x>
                         <y>55.31437683105469</y>
@@ -1384,20 +575,6 @@
                                     <supportsEl>false</supportsEl>
                                 </value>
                             </entry>
-                            <entry>
-                                <key>Log prefix</key>
-                                <value>
-                                    <description>Log prefix appended to the log lines. It helps to distinguish the
-                                        output of multiple LogAttribute processors.
-                                    </description>
-                                    <displayName>Log prefix</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Log prefix</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>true</supportsEl>
-                                </value>
-                            </entry>
                         </descriptors>
                         <lossTolerant>false</lossTolerant>
                         <penaltyDuration>30 sec</penaltyDuration>
@@ -1416,9 +593,6 @@
                             <entry>
                                 <key>Attributes to Ignore</key>
                             </entry>
-                            <entry>
-                                <key>Log prefix</key>
-                            </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
                         <schedulingPeriod>0 sec</schedulingPeriod>
@@ -1431,15 +605,244 @@
                         <description>All FlowFiles are routed to this relationship</description>
                         <name>success</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <supportsEventDriven>true</supportsEventDriven>
                     <supportsParallelProcessing>true</supportsParallelProcessing>
                     <type>org.apache.nifi.processors.standard.LogAttribute</type>
                 </processors>
                 <processors>
-                    <id>4bbe08a0-7685-47c2-b9aa-b371d7e6c7c9</id>
-                    <parentGroupId>f2d7346a-3d9e-4a37-b26b-4b4971ebef78</parentGroupId>
+                    <id>20cae368-1767-4b94-80ea-5ff5d0805917</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <position>
+                        <x>242.565185546875</x>
+                        <y>54.22074890136719</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>ZooKeeper Connection String</key>
+                                <value>
+                                    <description>The Connection String to use in order to connect to ZooKeeper. This is
+                                        often a comma-separated list of &lt;host&gt;:&lt;port&gt; combinations. For
+                                        example, host1:2181,host2:2181,host3:2188
+                                    </description>
+                                    <displayName>ZooKeeper Connection String</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>ZooKeeper Connection String</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Topic Name</key>
+                                <value>
+                                    <description>The Kafka Topic to pull messages from</description>
+                                    <displayName>Topic Name</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Topic Name</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Zookeeper Commit Frequency</key>
+                                <value>
+                                    <defaultValue>60 secs</defaultValue>
+                                    <description>Specifies how often to communicate with ZooKeeper to indicate which
+                                        messages have been pulled. A longer time period will result in better overall
+                                        performance but can result in more data duplication if a NiFi node is lost
+                                    </description>
+                                    <displayName>Zookeeper Commit Frequency</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Zookeeper Commit Frequency</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Batch Size</key>
+                                <value>
+                                    <defaultValue>1</defaultValue>
+                                    <description>Specifies the maximum number of messages to combine into a single
+                                        FlowFile. These messages will be concatenated together with the &lt;Message
+                                        Demarcator&gt; string placed between the content of each message. If the
+                                        messages from Kafka should not be concatenated together, leave this value at 1.
+                                    </description>
+                                    <displayName>Batch Size</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Batch Size</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Message Demarcator</key>
+                                <value>
+                                    <defaultValue>\n</defaultValue>
+                                    <description>Specifies the characters to use in order to demarcate multiple messages
+                                        from Kafka. If the &lt;Batch Size&gt; property is set to 1, this value is
+                                        ignored. Otherwise, for each two subsequent messages in the batch, this value
+                                        will be placed in between them.
+                                    </description>
+                                    <displayName>Message Demarcator</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Message Demarcator</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Client Name</key>
+                                <value>
+                                    <defaultValue>NiFi-20cae368-1767-4b94-80ea-5ff5d0805917</defaultValue>
+                                    <description>Client Name to use when communicating with Kafka</description>
+                                    <displayName>Client Name</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Client Name</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Group ID</key>
+                                <value>
+                                    <defaultValue>20cae368-1767-4b94-80ea-5ff5d0805917</defaultValue>
+                                    <description>A Group ID is used to identify consumers that are within the same
+                                        consumer group
+                                    </description>
+                                    <displayName>Group ID</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Group ID</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Kafka Communications Timeout</key>
+                                <value>
+                                    <defaultValue>30 secs</defaultValue>
+                                    <description>The amount of time to wait for a response from Kafka before determining
+                                        that there is a communications error
+                                    </description>
+                                    <displayName>Kafka Communications Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Kafka Communications Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>ZooKeeper Communications Timeout</key>
+                                <value>
+                                    <defaultValue>30 secs</defaultValue>
+                                    <description>The amount of time to wait for a response from ZooKeeper before
+                                        determining that there is a communications error
+                                    </description>
+                                    <displayName>ZooKeeper Communications Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>ZooKeeper Communications Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>ZooKeeper Connection String</key>
+                                <value>localhost:2181</value>
+                            </entry>
+                            <entry>
+                                <key>Topic Name</key>
+                                <value>maxwell</value>
+                            </entry>
+                            <entry>
+                                <key>Zookeeper Commit Frequency</key>
+                                <value>60 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Batch Size</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>Message Demarcator</key>
+                                <value>\n</value>
+                            </entry>
+                            <entry>
+                                <key>Client Name</key>
+                                <value>NiFi-fe47d2e3-99ec-4057-ad42-b709347eb369</value>
+                            </entry>
+                            <entry>
+                                <key>Group ID</key>
+                                <value>fe47d2e3-99ec-4057-ad42-b709347eb369</value>
+                            </entry>
+                            <entry>
+                                <key>Kafka Communications Timeout</key>
+                                <value>30 secs</value>
+                            </entry>
+                            <entry>
+                                <key>ZooKeeper Communications Timeout</key>
+                                <value>30 secs</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>GetKafka</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>All FlowFiles that are created are routed to this relationship</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.kafka.GetKafka</type>
+                </processors>
+                <processors>
+                    <id>9a83bf1b-5c53-4262-abf5-3a6141cd4dfb</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
                     <position>
                         <x>241.73905181884766</x>
                         <y>316.6187438964844</y>
@@ -1512,20 +915,6 @@
                                     <displayName>Kerberos Keytab</displayName>
                                     <dynamic>false</dynamic>
                                     <name>Kerberos Keytab</name>
-                                    <required>false</required>
-                                    <sensitive>false</sensitive>
-                                    <supportsEl>false</supportsEl>
-                                </value>
-                            </entry>
-                            <entry>
-                                <key>Kerberos Relogin Period</key>
-                                <value>
-                                    <defaultValue>4 hours</defaultValue>
-                                    <description>Period of time which should pass before attempting a kerberos relogin
-                                    </description>
-                                    <displayName>Kerberos Relogin Period</displayName>
-                                    <dynamic>false</dynamic>
-                                    <name>Kerberos Relogin Period</name>
                                     <required>false</required>
                                     <sensitive>false</sensitive>
                                     <supportsEl>false</supportsEl>
@@ -1661,39 +1050,42 @@
                                 <key>Compression codec</key>
                                 <value>
                                     <allowableValues>
-                                        <displayName>NONE</displayName>
-                                        <value>NONE</value>
+                                        <displayName>org.apache.hadoop.io.compress.BZip2Codec</displayName>
+                                        <value>org.apache.hadoop.io.compress.BZip2Codec</value>
                                     </allowableValues>
                                     <allowableValues>
-                                        <displayName>DEFAULT</displayName>
-                                        <value>DEFAULT</value>
+                                        <displayName>org.apache.hadoop.io.compress.DefaultCodec</displayName>
+                                        <value>org.apache.hadoop.io.compress.DefaultCodec</value>
                                     </allowableValues>
                                     <allowableValues>
-                                        <displayName>BZIP</displayName>
-                                        <value>BZIP</value>
+                                        <displayName>org.apache.hadoop.io.compress.GzipCodec</displayName>
+                                        <value>org.apache.hadoop.io.compress.GzipCodec</value>
                                     </allowableValues>
                                     <allowableValues>
-                                        <displayName>GZIP</displayName>
-                                        <value>GZIP</value>
+                                        <displayName>org.apache.hadoop.io.compress.Lz4Codec</displayName>
+                                        <value>org.apache.hadoop.io.compress.Lz4Codec</value>
                                     </allowableValues>
                                     <allowableValues>
-                                        <displayName>LZ4</displayName>
-                                        <value>LZ4</value>
+                                        <displayName>org.apache.hadoop.io.compress.SnappyCodec</displayName>
+                                        <value>org.apache.hadoop.io.compress.SnappyCodec</value>
                                     </allowableValues>
-                                    <allowableValues>
-                                        <displayName>SNAPPY</displayName>
-                                        <value>SNAPPY</value>
-                                    </allowableValues>
-                                    <allowableValues>
-                                        <displayName>AUTOMATIC</displayName>
-                                        <value>AUTOMATIC</value>
-                                    </allowableValues>
-                                    <defaultValue>NONE</defaultValue>
                                     <description></description>
                                     <displayName>Compression codec</displayName>
                                     <dynamic>false</dynamic>
                                     <name>Compression codec</name>
-                                    <required>true</required>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Kerberos Relogin Period</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>Kerberos Relogin Period</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>Kerberos Relogin Period</name>
+                                    <required>false</required>
                                     <sensitive>false</sensitive>
                                     <supportsEl>false</supportsEl>
                                 </value>
@@ -1704,7 +1096,7 @@
                         <properties>
                             <entry>
                                 <key>Hadoop Configuration Resources</key>
-                                <value>/opt/mapr/hadoop/hadoop-2.5.1//etc/hadoop/core-site.xml</value>
+                                <value>/etc/hadoop/core-site.xml</value>
                             </entry>
                             <entry>
                                 <key>Kerberos Principal</key>
@@ -1713,12 +1105,8 @@
                                 <key>Kerberos Keytab</key>
                             </entry>
                             <entry>
-                                <key>Kerberos Relogin Period</key>
-                                <value>4 hours</value>
-                            </entry>
-                            <entry>
                                 <key>Directory</key>
-                                <value>/datalake/corporate/ses_dnhi/user/smodak10/schinth</value>
+                                <value>/users/sumo</value>
                             </entry>
                             <entry>
                                 <key>Conflict Resolution Strategy</key>
@@ -1746,6 +1134,10 @@
                                 <key>Compression codec</key>
                                 <value>NONE</value>
                             </entry>
+                            <entry>
+                                <key>Kerberos Relogin Period</key>
+                                <value>4 hours</value>
+                            </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
                         <schedulingPeriod>0 sec</schedulingPeriod>
@@ -1767,26 +1159,606 @@
                         </description>
                         <name>success</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <supportsEventDriven>false</supportsEventDriven>
                     <supportsParallelProcessing>true</supportsParallelProcessing>
                     <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
                 </processors>
+                <processors>
+                    <id>afc16606-eb3f-4638-b7f5-489b0fb54024</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <position>
+                        <x>625.4080200195312</x>
+                        <y>215.8929901123047</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>JavaScript</key>
+                                <value>
+                                    <description>JavaScript to execute</description>
+                                    <displayName>JavaScript</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>JavaScript</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Arguments</key>
+                                <value>
+                                    <defaultValue></defaultValue>
+                                    <description>Arguments to pass to JavaScript</description>
+                                    <displayName>Arguments</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Arguments</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>JavaScript</key>
+                                <value>// logical change record (LCR)
+                                    var lcr = util.flowFileToString(flowFile, session);
+                                    lcr = JSON.parse(lcr);
+
+                                    var attMap = new java.util.HashMap();
+                                    attMap.put('commit', lcr.commit.toString());
+                                    attMap.put('database', lcr.database);
+                                    attMap.put('table', lcr.table);
+                                    attMap.put('ts', lcr.ts.toString());
+                                    attMap.put('id', lcr.data.id.toString());
+                                    attMap.put('type', lcr.type);
+                                    attMap.put('xid', lcr.xid.toString());
+
+                                    session.remove(flowFile);
+                                    flowFile = util.stringToFlowFile(JSON.stringify(lcr.data) , session, flowFile);
+                                    flowFile = session.putAllAttributes(flowFile, attMap);
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Arguments</key>
+                                <value></value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Process in JavaScript</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>FlowFiles that were failed to process</description>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description>FlowFiles that were successfully processed</description>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>com.crossbusiness.nifi.processors.ExecuteJavaScript</type>
+                </processors>
+                <processors>
+                    <id>712b67de-08f2-4f65-b81f-81150afe8531</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <position>
+                        <x>971.64892578125</x>
+                        <y>602.3913269042969</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>HTTP Method</key>
+                                <value>
+                                    <defaultValue>GET</defaultValue>
+                                    <description>HTTP request method (GET, POST, PUT, DELETE, HEAD, OPTIONS).
+                                    </description>
+                                    <displayName>HTTP Method</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>HTTP Method</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Remote URL</key>
+                                <value>
+                                    <description>Remote URL which will be connected to, including scheme, host, port,
+                                        path.
+                                    </description>
+                                    <displayName>Remote URL</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Remote URL</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                                <value>
+                                    <description>The SSL Context Service used to provide client certificate information
+                                        for TLS/SSL (https) connections.
+                                    </description>
+                                    <displayName>SSL Context Service</displayName>
+                                    <dynamic>false</dynamic>
+                                    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService
+                                    </identifiesControllerService>
+                                    <name>SSL Context Service</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Connection Timeout</key>
+                                <value>
+                                    <defaultValue>5 secs</defaultValue>
+                                    <description>Max wait time for connection to remote service.</description>
+                                    <displayName>Connection Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Connection Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Read Timeout</key>
+                                <value>
+                                    <defaultValue>15 secs</defaultValue>
+                                    <description>Max wait time for response from remote service.</description>
+                                    <displayName>Read Timeout</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Read Timeout</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Include Date Header</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>True</displayName>
+                                        <value>True</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>False</displayName>
+                                        <value>False</value>
+                                    </allowableValues>
+                                    <defaultValue>True</defaultValue>
+                                    <description>Include an RFC-2616 Date header in the request.</description>
+                                    <displayName>Include Date Header</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Include Date Header</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Follow Redirects</key>
+                                <value>
+                                    <allowableValues>
+                                        <displayName>True</displayName>
+                                        <value>True</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <displayName>False</displayName>
+                                        <value>False</value>
+                                    </allowableValues>
+                                    <defaultValue>True</defaultValue>
+                                    <description>Follow HTTP redirects issued by remote server.</description>
+                                    <displayName>Follow Redirects</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Follow Redirects</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Attributes to Send</key>
+                                <value>
+                                    <description>Regular expression that defines which attributes to send as HTTP
+                                        headers in the request. If not defined, no attributes are sent as headers.
+                                    </description>
+                                    <displayName>Attributes to Send</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Attributes to Send</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Username</key>
+                                <value>
+                                    <description>The username to be used by the client to authenticate against the
+                                        Remote URL. Cannot include control characters (0-31), ':', or DEL (127).
+                                    </description>
+                                    <displayName>Basic Authentication Username</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Basic Authentication Username</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Password</key>
+                                <value>
+                                    <description>The password to be used by the client to authenticate against the
+                                        Remote URL.
+                                    </description>
+                                    <displayName>Basic Authentication Password</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Basic Authentication Password</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Host</key>
+                                <value>
+                                    <description>The fully qualified hostname or IP address of the proxy server
+                                    </description>
+                                    <displayName>Proxy Host</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Proxy Host</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>Proxy Port</key>
+                                <value>
+                                    <description>The port of the proxy server</description>
+                                    <displayName>Proxy Port</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Proxy Port</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>HTTP Method</key>
+                                <value>PUT</value>
+                            </entry>
+                            <entry>
+                                <key>Remote URL</key>
+                                <value>http://localhost:8000/v1/documents?uri=/${database}/${table}/${id}.json</value>
+                            </entry>
+                            <entry>
+                                <key>SSL Context Service</key>
+                            </entry>
+                            <entry>
+                                <key>Connection Timeout</key>
+                                <value>5 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Read Timeout</key>
+                                <value>15 secs</value>
+                            </entry>
+                            <entry>
+                                <key>Include Date Header</key>
+                                <value>True</value>
+                            </entry>
+                            <entry>
+                                <key>Follow Redirects</key>
+                                <value>True</value>
+                            </entry>
+                            <entry>
+                                <key>Attributes to Send</key>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Username</key>
+                                <value>soumyadip</value>
+                            </entry>
+                            <entry>
+                                <key>Basic Authentication Password</key>
+                            </entry>
+                            <entry>
+                                <key>Proxy Host</key>
+                            </entry>
+                            <entry>
+                                <key>Proxy Port</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>MarkLogic : ingest</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any type of connection failure, timeout or general
+                            exception.
+                        </description>
+                        <name>Failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any status code that should NOT be retried (1xx, 3xx,
+                            4xx status codes).
+                        </description>
+                        <name>No Retry</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Original FlowFile will be routed upon success (2xx status codes).</description>
+                        <name>Original</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>Response FlowFile will be routed upon success (2xx status codes).</description>
+                        <name>Response</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFile will be routed on any status code that can be retried (5xx status
+                            codes).
+                        </description>
+                        <name>Retry</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>false</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
+                </processors>
+                <processors>
+                    <id>37acb467-590b-4388-90be-5273b24e2905</id>
+                    <parentGroupId>6e1c824e-4cb5-444b-a18c-89b1da416c8d</parentGroupId>
+                    <position>
+                        <x>626.2073364257812</x>
+                        <y>422.89300537109375</y>
+                    </position>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <defaultConcurrentTasks>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                            <entry>
+                                <key>EVENT_DRIVEN</key>
+                                <value>0</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>1</value>
+                            </entry>
+                        </defaultConcurrentTasks>
+                        <defaultSchedulingPeriod>
+                            <entry>
+                                <key>TIMER_DRIVEN</key>
+                                <value>0 sec</value>
+                            </entry>
+                            <entry>
+                                <key>CRON_DRIVEN</key>
+                                <value>* * * * * ?</value>
+                            </entry>
+                        </defaultSchedulingPeriod>
+                        <descriptors>
+                            <entry>
+                                <key>Routing Strategy</key>
+                                <value>
+                                    <allowableValues>
+                                        <description>A copy of the FlowFile will be routed to each relationship whose
+                                            corresponding expression evaluates to 'true'
+                                        </description>
+                                        <displayName>Route to Property name</displayName>
+                                        <value>Route to Property name</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <description>Requires that all user-defined expressions evaluate to 'true' for
+                                            the FlowFile to be considered a match
+                                        </description>
+                                        <displayName>Route to 'matched' if all match</displayName>
+                                        <value>Route to 'match' if all match</value>
+                                    </allowableValues>
+                                    <allowableValues>
+                                        <description>Requires that at least one user-defined expression evaluate to
+                                            'true' for hte FlowFile to be considered a match
+                                        </description>
+                                        <displayName>Route to 'matched' if any matches</displayName>
+                                        <value>Route to 'match' if any matches</value>
+                                    </allowableValues>
+                                    <defaultValue>Route to Property name</defaultValue>
+                                    <description>Specifies how to determine which relationship to use when evaluating
+                                        the Expression Language
+                                    </description>
+                                    <displayName>Routing Strategy</displayName>
+                                    <dynamic>false</dynamic>
+                                    <name>Routing Strategy</name>
+                                    <required>true</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>false</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>delete</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>delete</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>delete</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>insert</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>insert</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>insert</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                            <entry>
+                                <key>update</key>
+                                <value>
+                                    <description></description>
+                                    <displayName>update</displayName>
+                                    <dynamic>true</dynamic>
+                                    <name>update</name>
+                                    <required>false</required>
+                                    <sensitive>false</sensitive>
+                                    <supportsEl>true</supportsEl>
+                                </value>
+                            </entry>
+                        </descriptors>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+                                <key>Routing Strategy</key>
+                                <value>Route to Property name</value>
+                            </entry>
+                            <entry>
+                                <key>delete</key>
+                                <value>${type:equals('delete')}</value>
+                            </entry>
+                            <entry>
+                                <key>insert</key>
+                                <value>${type:equals('insert')}</value>
+                            </entry>
+                            <entry>
+                                <key>update</key>
+                                <value>${type:equals('update')}</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <name>Route: insert : update : delete</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description></description>
+                        <name>delete</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description></description>
+                        <name>insert</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <description>FlowFiles that do not match any user-define expression will be routed here
+                        </description>
+                        <name>unmatched</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <description></description>
+                        <name>update</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <supportsEventDriven>true</supportsEventDriven>
+                    <supportsParallelProcessing>true</supportsParallelProcessing>
+                    <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
+                </processors>
             </contents>
             <disabledCount>0</disabledCount>
             <inactiveRemotePortCount>0</inactiveRemotePortCount>
             <inputPortCount>0</inputPortCount>
-            <invalidCount>0</invalidCount>
+            <invalidCount>1</invalidCount>
             <name>MaxwellCDC-Kafka-MarkLogic Flow</name>
             <outputPortCount>0</outputPortCount>
             <parent>
-                <id>96de89d5-1d1c-4f85-ac48-a0e226cc990b</id>
+                <id>53a6d96b-04a2-4473-82d7-909305578e2e</id>
                 <name>NiFi Flow</name>
             </parent>
-            <runningCount>7</runningCount>
-            <stoppedCount>0</stoppedCount>
+            <runningCount>0</runningCount>
+            <stoppedCount>6</stoppedCount>
         </processGroups>
     </snippet>
-    <timestamp>11/17/2015 14:12:53 CST</timestamp>
+    <timestamp>11/17/2015 13:46:52 PST</timestamp>
 </template>
